@@ -317,7 +317,7 @@ section{
   animation: bounce 2s infinite;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 100px) and (max-width: 500px) {
   .header .txt{
     max-width: 400px;
     margin-left: -70px;
@@ -333,7 +333,7 @@ section{
     width: 40%;
     height: 400px;
     padding-left: 50px ;
-    margin: -400px 0 120px 200px;
+    margin: 0 0 70px 120px;
     animation: float 3s ease-in-out infinite;
   }
 
@@ -469,7 +469,7 @@ section{
   background: rgba(0, 0, 0, 0.62) !important;
 }
 
-@media (min-width:300px) {
+@media (min-width: 100px) and (max-width: 500px) {
   
   .content-slide{
     max-width: 400px;
@@ -608,7 +608,7 @@ label {
 
 /* smaller resolution styles */
 
-@media (min-width: 300px) {
+@media (min-width: 100px) and (max-width: 500px) {
   .fa-bars {
     display: block !important;
   }
@@ -620,7 +620,7 @@ label {
 
 /* mobile styles */
 
-@media (min-width: 300px) {
+@media (min-width: 100px) and (max-width: 500px) {
   .content {
     max-width: 400px;
   }
