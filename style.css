@@ -317,7 +317,7 @@ section{
   animation: bounce 2s infinite;
 }
 
-@media (min-width: 300px) and (max-width: 769px) {
+@media (min-width: 300px) {
   .header .txt{
     max-width: 400px;
     margin-left: -70px;
@@ -469,7 +469,7 @@ section{
   background: rgba(0, 0, 0, 0.62) !important;
 }
 
-@media (min-width: 300px) and (max-width: 769px) {
+@media (max-width: 769px) {
   
   .content-slide{
     max-width: 400px;
@@ -608,7 +608,7 @@ label {
 
 /* smaller resolution styles */
 
-@media (min-width: 300px) and (max-width: 769px) {
+@media (max-width: 769px) {
   .fa-bars {
     display: block !important;
   }
@@ -620,7 +620,7 @@ label {
 
 /* mobile styles */
 
-@media (min-width: 300px) and (max-width: 769px) {
+@media (max-width: 769px) {
   .content {
     max-width: 400px;
   }
