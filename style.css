@@ -28,7 +28,7 @@ p {
 }
 
 section{
-  min-height: 100vh;
+  height: auto;
 }
 
 .skillbar {
