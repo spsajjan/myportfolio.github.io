@@ -38,7 +38,7 @@
 
 
 <!-- Navbar Starts -->
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-dark bg-gradient-theme fixed-top">
     <div class="container-fluid">
       <img
         class="navbar-logo"
@@ -81,7 +81,24 @@
             <li class="nav-item">
               <a class="nav-link" href="index.html#about">About</a>
               <a class="nav-link" href="index.html#skills">Skills</a>
-              <a class="nav-link active" href="#">Services</a>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Services
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="services.html#web-design">Web Design</a></li>
+                  <li><a class="dropdown-item" href="services.html#web-development">Web Development</a></li>
+                  <li><a class="dropdown-item" href="services.html#ecommerce">Ecommerce</a></li>
+                  <li><a class="dropdown-item" href="services.html#app-development">App Development</a></li>
+                  <li><a class="dropdown-item" href="services.html#digital-marketing">Digital Marketing</a></li>
+                </ul>
+              </li>
               <a class="nav-link" href="index.html#projects">Projects</a>
             </li>
             <!-- <li class="nav-item dropdown">
@@ -120,64 +137,77 @@
 
     
     <div class="row">
-        <div class="col-md-6 p-5" id="web-design">
-            <h1>Web Design</h1>
-            <p>
-                We completely understand your business category and create a web design, 
-                which is according to your site requirements and lets you stand apart from the crowd. 
-                Our web designers make amazing designs that can fulfill your dream of having a unique brand recognition and identity.
-            </p>
-            <p><strong>Technologies Focused On</strong></p>
-            <p>Client-Side Scripting : HTML/XML/XHTML</p>
+        <div class="col-md-6 p-3" id="web-design">
+            <div class="border rounded p-3">
+                <h1>Web Design</h1>
+                <p>
+                    We completely understand your business category and create a web design, 
+                    which is according to your site requirements and lets you stand apart from the crowd. 
+                    Our web designers make amazing designs that can fulfill your dream of having a unique brand recognition and identity.
+                </p>
+                <p><strong>Technologies Focused On</strong></p>
+                <p>Client-Side Scripting : HTML/XML/XHTML</p>
+            </div>
+ 
         </div>
 
-        <div class="col-md-6 p-5" id="web-development">
-            <h1>Web Development</h1>
-            <p>
-                Strengthen your foothold in the online world with help of our core expertise in advanced web development technology. 
-                Our multifaceted & prolific approach will carve a unique image of your business that tends to make your brand famous 
-                and renowned worldwide.
-            </p>
-            <p><strong>Technologies Focused On</strong></p>
-            <p>Client-Side Scripting : HTML/CSS/ JavaScript/AJAX/ jQuery</p>
+        <div class="col-md-6 p-3" id="web-development">
+            <div class="border rounded p-3">
+                <h1>Web Development</h1>
+                <p>
+                    Strengthen your foothold in the online world with help of our core expertise in advanced web development technology. 
+                    Our multifaceted & prolific approach will carve a unique image of your business that tends to make your brand famous 
+                    and renowned worldwide.
+                </p>
+                <p><strong>Technologies Focused On</strong></p>
+                <p>Client-Side Scripting : HTML/CSS/ JavaScript/AJAX/ jQuery</p>
+    
+                <p>Server-Side Scripting : PHP/ASP.NET /PYTHON</p>
+            </div>
 
-            <p>Server-Side Scripting : PHP/ASP.NET /PYTHON</p>
         </div>
         
-        <div class="col-md-6 p-5" id="ecommerce">
-            <h1>Ecommerce</h1>
-            <p>
-                Expand business via multifarious digital channels all around the world. 
-                Our teams of experts have in-depth knowledge of various e-commerce web development 
-                platforms that can not only give a new look to your business, 
-                but also fuel it to move with amazing pace in the today’s cutthroat competition.
-            </p>
-            <p><strong>Technologies Focused On</strong></p>
-            <p>Magneto, Shopify, Drupal, WooCommerce, and X-cart eCommerce Development, CodeIgniter</p>
+        <div class="col-md-6 p-3" id="ecommerce">
+            <div class="border rounded p-3">
+                <h1>Ecommerce</h1>
+                <p>
+                    Expand business via multifarious digital channels all around the world. 
+                    Our teams of experts have in-depth knowledge of various e-commerce web development 
+                    platforms that can not only give a new look to your business, 
+                    but also fuel it to move with amazing pace in the today’s cutthroat competition.
+                </p>
+                <p><strong>Technologies Focused On</strong></p>
+                <p>Magneto, Shopify, Drupal, WooCommerce, and X-cart eCommerce Development, CodeIgniter</p>
+            </div>
+
         </div>
 
-        <div class="col-md-6 p-5" id="app-development">
-            <h1>App Development</h1>
-            <p>
-                Ensure an enthralling presence on the digital landscape with mobile apps and games that are highly advanced, 
-                replete with features and offer visual delight that is rare to be found. 
-                With our unmatched expertise and experience in this craft, you can expect groundbreaking apps and games across all major mobile platforms.
-            </p>
-            <p><strong>Technologies Focused On</strong></p>
-            <p>Client-Side Scripting : XML/Material Design</p>
-
-            <p>Server-Side Scripting : PHP/Java</p>
+        <div class="col-md-6 p-3" id="app-development">
+            <div class="border rounded p-3">
+                <h1>App Development</h1>
+                <p>
+                    Ensure an enthralling presence on the digital landscape with mobile apps and games that are highly advanced, 
+                    replete with features and offer visual delight that is rare to be found. 
+                    With our unmatched expertise and experience in this craft, you can expect groundbreaking apps and games across all major mobile platforms.
+                </p>
+                <p><strong>Technologies Focused On</strong></p>
+                <p>Client-Side Scripting : XML/Material Design</p>
+    
+                <p>Server-Side Scripting : PHP/Java</p>
+            </div>
         </div>
 
-        <div class="col-md-6 p-5" id="digital-marketing">
-            <h1>Digital Marketing</h1>
-            <p>
-                Boost the organic traffic of business with a professional, 
-                flexible and goal-oriented website design and provide a new edge to your company online to earn maximum revenues. 
-                We are a client-driven company that perform tremendously with technical innovations and creativity.
-            </p>
-            <p><strong>Technologies Focused On</strong></p>
-            <p>Some of the ways : SEO/Content Marketing/Social Media</p>
+        <div class="col-md-6 p-3" id="digital-marketing">
+            <div class="border rounded p-3">
+                <h1>Digital Marketing</h1>
+                <p>
+                    Boost the organic traffic of business with a professional, 
+                    flexible and goal-oriented website design and provide a new edge to your company online to earn maximum revenues. 
+                    We are a client-driven company that perform tremendously with technical innovations and creativity.
+                </p>
+                <p><strong>Technologies Focused On</strong></p>
+                <p>Some of the ways : SEO/Content Marketing/Social Media</p>
+            </div>
         </div>
         <div class="col-12 m-5">
             <p class="text-center fs-1">Specialization</p>

@@ -7,6 +7,7 @@
     --secondary: #FFC448;
     --light: #FAFAFB;
     --dark: #12141D;
+    --linear-gradient-theme: linear-gradient(to right, #9E3584,#6031AE);
 }
 
 body{
@@ -34,13 +35,18 @@ a{
 nav{
   border-bottom: 1px solid white;
 }
+
+.bg-gradient-theme{
+  background-image: var(--linear-gradient-theme) !important;
+}
+
 .navbar-logo{
     height: 40px;
     width: auto;
 }
 
 section{
-  padding-top: 50px !important;
+  position: relative !important;
 }
 
 
