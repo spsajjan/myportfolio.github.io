@@ -12,10 +12,6 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,600"
       rel="stylesheet"
       type="text/css"
@@ -82,6 +78,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#skills">Skills</a>
+                <a class="nav-link" href="#services">Services</a>
                 <a class="nav-link" href="#projects">Projects</a>
               </li>
               <!-- <li class="nav-item dropdown">
@@ -116,14 +113,16 @@
       <div class="row p-5">
         <div class="col-md-8 text-center">
           <div class="theme-bg p-3">
-            <h1>Shashank Sajjan</h1>
+            <h1 class="myName">Shashank Sajjan</h1>
             <h3>Web Designer + Web Developer</h3>
           </div>
-          <p class="p-5 fs-4">
-            Hi, I'm Shashank Sajjan! I'm a Web Designer & Web Developer focused
-            on creating clean, responsive web designs!
+          <p class="p-5 fs-4" style="font-size: 40px !important;">
+            I'm focused on creating clean, responsive web designs!
           </p>
-          <a href="#!" class="btn btn-primary"><i class="fa fa-download me-3"></i> Download Resume</a>
+          <a href="https://drive.google.com/file/d/1wVzAgEWqHxEc41XvCZRn8359-6ApIk3n/view?usp=share_link" class="btn btn-primary">
+            <i class="fa fa-download me-3"></i> 
+            Download Resume
+          </a>
         </div>
         <div class="col-md-4">
           <img
@@ -136,10 +135,10 @@
     </div>
     <div class="container-fluid about-section my-5">
       <div class="container p-5 text-center" id="about">
-        <p class="fs-3 text-start">About Me</p>
+        <p class="fs-3 text-center mb-5">About Me</p>
         <div class="row">
           <div class="col-md-6">
-            <p class="fs-5 text-secondary">
+            <p class="fs-5 mt-5" style="color:#F9883A">
               I work collectively, but my vision is singular: I aim to create
               beautiful brands that speak meaningfully and act responsibly. My
               approach is both strategic and intuitive, helping clients tap into
@@ -225,60 +224,63 @@
     <!-- Services -->
 
     <div class="container-fluid services-section" id="services">
+      <div class="container mt-5" >
       <div class="row my-5">
         <p class="fs-3 text-center">Services</p>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark text-center">
+          <div class="card bg-dark border text-center">
             <img src="./img/services/web-design-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
-                <h5 class="card-title">Web Desing</h5>
-                <a href="#" class="btn btn-outline-primary mt-3">Read more..</a>
+                <h5 class="card-title">Web Design</h5>
+                <a href="services.html#web-design" class="btn btn-outline-primary mt-3">Read more..</a>
             </div>
           </div>
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark text-center">
+          <div class="card bg-dark border text-center">
             <img src="./img/services/web-development-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Web Development</h5>
-                <a href="#" class="btn btn-outline-primary mt-3">Read more..</a>
+                <a href="services.html#web-development" class="btn btn-outline-primary mt-3">Read more..</a>
             </div>
           </div>
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark text-center">
+          <div class="card bg-dark border text-center">
             <img src="./img/services/ecommerce-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Ecommerce</h5>
-                <a href="#" class="btn btn-outline-primary mt-3">Read more..</a>
+                <a href="services.html#ecommerce" class="btn btn-outline-primary mt-3">Read more..</a>
             </div>
           </div>
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark text-center">
+          <div class="card bg-dark border text-center">
             <img src="./img/services/app-development-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">App Development</h5>
-                <a href="#" class="btn btn-outline-primary mt-3">Read more..</a>
+                <a href="services.html#app-development" class="btn btn-outline-primary mt-3">Read more..</a>
             </div>
           </div>
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark text-center">
+          <div class="card bg-dark border text-center">
             <img src="./img/services/digital-marketing-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Digital Marketing</h5>
-                <a href="#" class="btn btn-outline-primary mt-3">Read more..</a>
+                <a href="services.html#digital-marketing" class="btn btn-outline-primary mt-3">Read more..</a>
             </div>
           </div>
         </div>
         <!-- Service Item -->
       </div>
+      </div>
+
     </div>
 
     <div class="container-fluid portfolio-section py-5" id="projects">
@@ -317,13 +319,15 @@
                     class="btn btn-lg-square btn-primary border-2 mx-1"
                     href="img/projects/colorful-gradient-landing-page.png"
                     data-lightbox="portfolio"
-                    ><i class="fa fa-eye"></i
-                  ></a>
+                    >
+                    <i class="fa fa-eye"></i>
+                  </a>
                   <a
                     class="btn btn-lg-square btn-primary border-2 mx-1"
                     href="https://codepen.io/shashank-sajjan/pen/zYmYbba"
-                    ><i class="fa fa-link"></i
-                  ></a>
+                    >
+                    <i class="fa fa-link"></i>
+                  </a>
                 </div>
               </div>
             </div>
@@ -399,6 +403,49 @@
             </div>
 
             <!-- Project Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item second">
+              <div class="portfolio-img rounded overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="img/projects/coming-soon-banner.png"
+                  alt=""
+                />
+                <div class="portfolio-btn">
+                  <a
+                    class="btn btn-lg-square btn-primary border-2 mx-1"
+                    href="img/projects/coming-soon-banner.png"
+                    data-lightbox="portfolio"
+                    ><i class="fa fa-eye"></i
+                  ></a>
+                  <a class="btn btn-lg-square btn-primary border-2 mx-1" href=""
+                    ><i class="fa fa-link"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item second">
+              <div class="portfolio-img rounded overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="img/projects/coming-soon-banner.png"
+                  alt=""
+                />
+                <div class="portfolio-btn">
+                  <a
+                    class="btn btn-lg-square btn-primary border-2 mx-1"
+                    href="img/projects/coming-soon-banner.png"
+                    data-lightbox="portfolio"
+                    ><i class="fa fa-eye"></i
+                  ></a>
+                  <a class="btn btn-lg-square btn-primary border-2 mx-1" href=""
+                    ><i class="fa fa-link"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -462,6 +509,11 @@
               <div class="contact-info col-10">
                 <p>Address</p>
                 <p>Taj Nagar, Hubli</p>
+                <a
+                href="https://goo.gl/maps/gNQfL5sA3SgeSnYN9"
+                class="mb-3 btn btn-outline-success"
+                >Goto Map</a
+              >
               </div>
             </div>
           </div>
@@ -483,15 +535,16 @@
                   <!-- Grid column -->
                   <div class="col-lg-5 col-sm-12 mx-auto box-1">
 
-                      <!-- Content -->
+                      
                       <a href="index.html"><img src="img/w-logo-w.png" class="footer-logo" alt="footer-logo"></a>
+                      <!-- Social Links -->
                       <p class="text-center fs-3">Social Links</p>
                       <p class="fs-3">
-                        <a href="#" class="fab fa-facebook me-3"></a>
-                        <a href="#" class="fab fa-linkedin me-3"></a>
-                        <a href="#" class="fab fa-google me-3"></a>
-                        <a href="#" class="fab fa-github"></a>
+                        <a href="https://www.facebook.com/shankz.me" class="fab fa-facebook me-3"></a>
+                        <a href="https://www.linkedin.com/in/shashank-sajjan-24a706202/" class="fab fa-linkedin me-3"></a>
+                        <a href="https://github.com/spsajjan" class="fab fa-github"></a>
                       </p>
+                      <!-- Social Links End -->
 
                   </div>
                   <!-- Grid column -->

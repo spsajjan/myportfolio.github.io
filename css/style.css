@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=DynaPuff&display=swap');
+
 :root{
     --theme-color-light: #A677BC;
     --theme-color: #7A339B;
@@ -17,6 +19,10 @@ a{
   text-decoration: none !important;
   color: inherit !important;
 }
+
+.txt-bebas-neue{
+  font-family: bebas neue;
+}
 .theme-bg{
     background-color: var(--theme-color);
 }
@@ -25,9 +31,16 @@ a{
     padding-top: 50px;
 }
 
+nav{
+  border-bottom: 1px solid white;
+}
 .navbar-logo{
     height: 40px;
     width: auto;
+}
+
+section{
+  padding-top: 50px !important;
 }
 
 
@@ -55,7 +68,17 @@ a{
     }
 }
 
+
+
+.myName{
+  font-family: caveat;
+  font-size: 90px;
+}
+
 /* About Me */
+.about-section{
+  padding-top: 20px;
+}
 .profile-img img{
     height: 300px !important;
     width: auto !important;
@@ -309,7 +332,9 @@ footer{
 
 
 /* Services CSS */
-
+.services-section{
+  padding-top: 50px;
+}
 .services-section .card{
   padding: 30px;
 }
