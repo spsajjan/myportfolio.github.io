@@ -32,10 +32,6 @@ a{
     padding-top: 50px;
 }
 
-nav{
-  border-bottom: 1px solid white;
-}
-
 .bg-gradient-theme{
   background-image: var(--linear-gradient-theme) !important;
 }
