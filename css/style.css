@@ -11,9 +11,9 @@
 }
 
 body{
-    color:white !important;
-    background-color: #262626 !important;
-    font-family: raleway;
+  color:white !important;
+  background-color: #262626 !important;
+  font-family: raleway;
 }
 
 a{
@@ -51,11 +51,11 @@ section{
 
 
 .bg-space{
-    width: 100%;
-    height: auto;
-    background: url("../img/banner-bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  background: url("../img/banner-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .astronaut{
