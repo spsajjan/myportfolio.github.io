@@ -35,7 +35,7 @@
   </head>
   <body>
     <!-- Navbar Starts -->
-    <nav class="navbar navbar-dark fixed-top">
+    <nav class="navbar navbar-dark fixed-top navbarScroll">
       <div class="container-fluid">
         <a href="index.html">
           <img
@@ -80,24 +80,6 @@
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#skills">Skills</a>
                 <a class="nav-link" href="#services">Services</a>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Services
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="services.html">Web Design</a></li>
-                    <li><a class="dropdown-item" href="services.html">Web Development</a></li>
-                    <li><a class="dropdown-item" href="services.html">Ecommerce</a></li>
-                    <li><a class="dropdown-item" href="services.html">App Development</a></li>
-                    <li><a class="dropdown-item" href="services.html">Digital Marketing</a></li>
-                  </ul>
-                </li>
                 <a class="nav-link" href="#projects">Projects</a>
               </li>
               <!-- <li class="nav-item dropdown">
@@ -128,7 +110,7 @@
     </nav>
     <!-- Navbar Ends -->
 
-    <div class="container-fluid header-section bg-space">
+    <div class="container-fluid header-section bg-space text-white">
       <div class="row p-5">
         <div class="col-md-8 text-center">
           <div class="theme-bg p-3">
@@ -138,7 +120,7 @@
           <p class="p-5 fs-4" style="font-size: 40px !important;">
             I'm focused on creating clean, responsive web designs!
           </p>
-          <a href="https://drive.google.com/file/d/1wVzAgEWqHxEc41XvCZRn8359-6ApIk3n/view?usp=share_link" class="btn btn-primary">
+          <a href="https://drive.google.com/file/d/1wVzAgEWqHxEc41XvCZRn8359-6ApIk3n/view?usp=share_link" target="_blank" class="btn btn-primary">
             <i class="fa fa-download me-3"></i> 
             Download Resume
           </a>
@@ -152,12 +134,13 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid about-section">
+
+    <div class="container-fluid about-section bg-white">
       <div class="container p-5 text-center" id="about">
         <p class="fs-3 text-center mb-5">About Me</p>
         <div class="row">
           <div class="col-md-6">
-            <p class="fs-5 mt-5" style="color:#F9883A">
+            <p class="fs-5 mt-5" style="color:#ed6300">
               I work collectively, but my vision is singular: I aim to create
               beautiful brands that speak meaningfully and act responsibly. My
               approach is both strategic and intuitive, helping clients tap into
@@ -172,7 +155,9 @@
         </div>
       </div>
     </div>
-    <div class="contiainer-fluid skills-section" id="skills">
+
+
+    <div class="contiainer-fluid skills-section text-white" id="skills">
       <div class="container my-5">
         <p class="fs-3 text-center">Skills</p>
 
@@ -242,13 +227,13 @@
 
     <!-- Services -->
 
-    <div class="container-fluid services-section" id="services">
+    <div class="container-fluid services-section bg-white" id="services">
       <div class="container mt-5" >
       <div class="row my-5">
         <p class="fs-3 text-center"><a href="services.html">Services</a></p>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark border text-center">
+          <div class="card border text-center">
             <img src="./img/services/web-design-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Web Design</h5>
@@ -258,7 +243,7 @@
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark border text-center">
+          <div class="card border text-center">
             <img src="./img/services/web-development-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Web Development</h5>
@@ -268,7 +253,7 @@
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark border text-center">
+          <div class="card border text-center">
             <img src="./img/services/ecommerce-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Ecommerce</h5>
@@ -278,7 +263,7 @@
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark border text-center">
+          <div class="card border text-center">
             <img src="./img/services/app-development-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">App Development</h5>
@@ -288,7 +273,7 @@
         </div>
         <!-- Service Item -->
         <div class="col-md-3 mb-3">
-          <div class="card bg-dark border text-center">
+          <div class="card border text-center">
             <img src="./img/services/digital-marketing-icon.png" class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">Digital Marketing</h5>
@@ -299,10 +284,9 @@
         <!-- Service Item -->
       </div>
       </div>
-
     </div>
 
-    <div class="container-fluid portfolio-section py-5" id="projects">
+    <div class="container-fluid portfolio-section py-5 text-white" id="projects">
       <!-- Projects Start -->
       <div class="container-xxl py-6 pt-5" >
         <div class="container">
@@ -541,7 +525,7 @@
     </section>
     <!-- End Contact Section -->
 
-    <section class="section-7">
+    <section class="section-7 text-white">
       <!-- Footer -->
       <footer class="page-footer font-small stylish-color-dark">
 

@@ -11,8 +11,6 @@
 }
 
 body{
-  color:white !important;
-  background-color: #262626 !important;
   font-family: raleway;
 }
 
@@ -20,6 +18,13 @@ a{
   text-decoration: none !important;
   color: inherit !important;
 }
+
+/* NAVBAR CSS */
+/* display background color black on navbar scroll */
+.navbarScroll.navbarDark {
+  background-color: black;
+}
+
 
 .txt-bebas-neue{
   font-family: bebas neue;
