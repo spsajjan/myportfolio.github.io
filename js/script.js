@@ -36,6 +36,6 @@ $(document).ready(function () {
             header.classList.remove('navbarDark');
         }
     }
-
+location.reload();
 // This is end
 })(jQuery);
