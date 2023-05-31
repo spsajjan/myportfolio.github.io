@@ -189,7 +189,6 @@ section{
 #portfolio-filters li {
   display: inline-block;
   font-weight: 500;
-  color: var(--theme-color);
   cursor: pointer;
   transition: .5s;
   border-bottom: 2px solid transparent;
@@ -197,9 +196,9 @@ section{
 
 #portfolio-filters li:hover,
 #portfolio-filters li.active {
-  color: var(--primary);
   border-color: var(--primary);
 }
+
 
 .portfolio-img {
   position: relative;
