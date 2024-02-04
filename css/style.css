@@ -87,9 +87,9 @@ section{
   padding-top: 20px;
 }
 .profile-img img{
-    height: 300px !important;
-    width: auto !important;
-    border: 10px solid white;
+  height: 300px !important;
+  width: auto !important;
+  border: 10px solid white;
 }
 
 /* Skill bars */
@@ -347,4 +347,13 @@ footer{
   width: 100px;
   display: flex;
   margin: 0 auto;
+}
+
+/* Games Section */
+#games{
+  background-color: var(--dark);
+  color: white;
+}
+#games .card-title{
+  color: black;
 }

@@ -23,7 +23,7 @@ $(document).ready(function () {
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
 
-
+    
     // add class navbarDark on navbar scroll
     const header = document.querySelector('.navbar-dark');
     console.log(header)
