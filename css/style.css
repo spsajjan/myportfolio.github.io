@@ -357,3 +357,23 @@ footer{
 #games .card-title{
   color: black;
 }
+
+/* Figure Image */
+figure{
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid white;
+  width: 200px;
+  height: 225px;
+  border-radius: 20px;
+}
+
+figure img{
+  height: 180px;
+  width: 180px;
+  border-radius: 20px;
+}
+
+figcaption{
+  text-align: center;
+}
