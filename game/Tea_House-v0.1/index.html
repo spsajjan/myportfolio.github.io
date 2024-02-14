@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea House</title>
+    <link rel="stylesheet" href="./assets/css/intro.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/coffee-cup-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="intro">
+        <div class="intro-img">
+            <img src="./assets/img/little-corner-tea-house-icon.jpg" alt="">
+        </div>
+    </div>
+    <div class="container border rounded-2 mt-3 p-2">
+        <div class="row">
+            <div class="col-md-3 d-flex">
+                <img src="./assets/img/coin-icon.png" class="coin-icon m-2" alt="Coin Icon">
+                <div class="h2 mt-2 money-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="d-flex">
+            <div class="g-container">
+                <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-four glass-img">
+                <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-three glass-img">
+                <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-two glass-img">
+                <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-one glass-img">
+            </div>
+            <div class="d-flex flex-column">
+                <div class="output-text"></div>
+                <div class="output">
+                    <img src="./assets/img/glass-empty.png" alt="" class="res-img">
+                </div>
+            </div>
+        </div>
+    
+        <button data-clear><img src="./assets/img/wash-icon.jpg" alt="" class="icon"></button>
+        <button data-mix><img src="./assets/img/craft-icon.jpg" alt="" class="icon"></button>
+        <div class="container m-2 border p-2 rounded-2">
+            <button data-material="water"><img src="./assets/img/hot-water-can.png" alt="" class="icon" ></button>
+            <button data-material="coffee_beans"><img src="./assets/img/material/bag-coffee-beans.png" alt="" class="icon" ></button>
+            <button data-material="fresh_leaves"><img src="./assets/img/material/bag-fresh-tea-leaf.png" alt="" class="icon" ></button>
+            <button data-material="lemon_grass"><img src="./assets/img/material/bag-lemon-grass.png" alt="" class="icon" ></button>
+        </div>
+
+<!-- Modal Begins -->
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="char-img"><img src="" alt=""></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Ends -->
+    </div>
+    
+    <script src="./assets/js/intro.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
