@@ -60,7 +60,6 @@ class Mixer{
         opTwo = newOpMat[1];
         opThree = newOpMat[2];
         opFour = newOpMat[3];
-        mixer.compute(opOne,opTwo,opThree,opFour)
     }
     compute(opOne, opTwo, opThree, opFour){
         let computation
@@ -139,7 +138,7 @@ selectedMaterial.forEach(button=>{
     })
 })
 mixBtn.addEventListener('click',button =>{
-    mixer.showResult(opOne,opTwo,opThree,opFour)
+    mixer.compute(opOne,opTwo,opThree,opFour)
 })
 clrBtn.addEventListener('click', button=>{
     mixer.clear();
