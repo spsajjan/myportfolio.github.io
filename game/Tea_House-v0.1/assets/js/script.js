@@ -1,13 +1,18 @@
-let resImg = document.querySelector(".res-img")
-let outxt = document.querySelector(".output-text")
+//-- View Constants
 let opOneView = document.querySelector(".op-one")
 let opTwoView = document.querySelector(".op-two")
 let opThreeView = document.querySelector(".op-three")
 let opFourView = document.querySelector(".op-four")
+let resImg = document.querySelector(".res-img")
+
+
+let outxt = document.querySelector(".output-text")
 let selectedMaterial = document.querySelectorAll("[data-material]")
 let mixBtn = document.querySelector("[data-mix]")
 let clrBtn = document.querySelector("[data-clear]")
-let opMat, opOne, opTwo, opThree, opFour
+
+//-- Other Variables
+let opMat, opOne, opTwo, opThree, opFour, computation, result
 
 var images = {
     //-- IN GLASS IMAGES LINK
@@ -16,12 +21,17 @@ var images = {
     coffee_beans : "./assets/img/in_glass/coffee-beans-glass.png",
     fresh_leaves : "./assets/img/in_glass/fresh-leaves-glass.png",
     lemon_grass : "./assets/img/in_glass/lemon-grass-glass.png",
+    fresh_rosemary: "./assets/img/in_glass/rosemary-fresh-glass.png",
+
     // -- GLASS FILL IMAGES LINK
     glassEmpty: "./assets/img/glass-empty.png",
     glassWater: "./assets/img/glass_fill/glass-water.png",
     glassCoffee: "./assets/img/glass_fill/glass-coffee.png",
     glassFreshTea: "./assets/img/glass_fill/glass-fresh-leaves-tea.png",
     glassLemonGrass: "./assets/img/glass_fill/glass-lemon-grass.png",
+    glassFreshRosemary: "./assets/img/glass_fill/glass-rosemary-fresh.png",
+
+    glassMishmash: "./assets/img/glass_fill/glass-mishmash.png"
 }
 class Mixer{
     clear(){
@@ -41,41 +51,54 @@ class Mixer{
         }else{
             opMat = newOpMat;
         }
-        mixer.compute(opMat)
+        mixer.assignMaterial(opMat)
     }
-    compute(opMat){
+    assignMaterial(opMat){
         opMat = opMat.split(",");
-        var size = 3;
         let newOpMat = opMat.slice(0,4)
         opOne = newOpMat[0];
         opTwo = newOpMat[1];
         opThree = newOpMat[2];
-        opFour = newOpMat[3]
+        opFour = newOpMat[3];
+        mixer.compute(opOne,opTwo,opThree,opFour)
     }
-    showResult(opOne, opTwo, opThree, opFour ){
+    compute(opOne, opTwo, opThree, opFour){
         let computation
         if(opThree == undefined && opFour == undefined){
-            if(opOne == "water" && opTwo == "lemon_grass"){
+            if(opOne == "water" && opTwo == "fresh_rosemary"){
+                computation = "glassFreshRosemary"
+                result = "Fresh Rosemary Tea"
+            }
+            else if(opOne == "water" && opTwo == "lemon_grass"){
                 computation = "glassLemonGrass"
-                outxt.innerText = "Fresh Lemon Grass Tea"
+                result = "Fresh Lemon Grass Tea"
             }
-            if(opOne == "water" && opTwo == "fresh_leaves"){
+            else if(opOne == "water" && opTwo == "fresh_leaves"){
                 computation = "glassFreshTea"
-                outxt.innerText = "Fresh Leaf Tea"
+                result = "Fresh Leaf Tea"
             }
-            if(opOne == "water" && opTwo == "water")
+            else if(opOne == "water" && opTwo == "water")
             {
                 computation = "glassWater"
-                outxt.innerText = "Water"
+                result = "Water"
             }
-            if(opOne == "water" && opTwo == "coffee_beans")
+            else if(opOne == "water" && opTwo == "coffee_beans")
             {
                 computation = "glassCoffee"
+                result = "Hot Coffee"
+            }else{
+                computation = "glassMishmash"
+                result = "MishMash"
             }
         }else{
             computation = "glassMishmash"
+            result = "MishMash"
         }
+        mixer.showResult(computation, result)
+    }
+    showResult(computation, result){   
         resImg.src = images[computation];
+        outxt.innerText = result;
     }
 }
 
