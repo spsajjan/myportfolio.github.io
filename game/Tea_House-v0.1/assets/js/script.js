@@ -1,5 +1,5 @@
 //-- View Constants
-let money = 0;
+let madeItem = "glassFreshRosemary";
 let opOneView = document.querySelector(".op-one")
 let opTwoView = document.querySelector(".op-two")
 let opThreeView = document.querySelector(".op-three")
@@ -15,7 +15,7 @@ let mixBtn = document.querySelector("[data-mix]")
 let clrBtn = document.querySelector("[data-clear]")
 
 //-- Other Variables
-let opMat, opOne, opTwo, opThree, opFour, computation, result
+let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0
 
 var images = {
     //-- IN GLASS IMAGES LINK
@@ -36,6 +36,27 @@ var images = {
 
     glassMishmash: "./assets/img/glass_fill/glass-mishmash.png"
 }
+
+var cost = {
+    glassEmpty: 0,
+    glassWater: 1.25,
+    glassCoffee: 2.15,
+    glassFreshTea: 3.55,
+    glassLemonGrass: 3.75,
+    glassFreshRosemary: 4.15,
+}
+
+var naming = {
+    glassEmpty: "Empty Glass",
+    glassWater: "Hot Water",
+    glassCoffee: "Hot Coffee",
+    glassFreshTea: "Fresh Leaf Hot Tea",
+    glassLemonGrass: "Fresh Lemon Grass Hot Tea",
+    glassFreshRosemary: "Fresh Hot Rosemary Tea"
+}
+
+let orderItems = ["glassFreshRosemary", "glassLemonGrass"]
+
 class Mixer{
     clear(){
         opOne = undefined;
@@ -69,38 +90,42 @@ class Mixer{
         if(opThree == undefined && opFour == undefined){
             if(opOne == "water" && opTwo == "fresh_rosemary"){
                 computation = "glassFreshRosemary"
-                result = "Fresh Rosemary Tea"
             }
             else if(opOne == "water" && opTwo == "lemon_grass"){
                 computation = "glassLemonGrass"
-                result = "Fresh Lemon Grass Tea"
             }
             else if(opOne == "water" && opTwo == "fresh_leaves"){
                 computation = "glassFreshTea"
-                result = "Fresh Leaf Tea"
             }
             else if(opOne == "water" && opTwo == "water")
             {
                 computation = "glassWater"
-                result = "Water"
             }
             else if(opOne == "water" && opTwo == "coffee_beans")
             {
                 computation = "glassCoffee"
-                result = "Hot Coffee"
             }else{
                 computation = "glassMishmash"
-                result = "MishMash"
             }
         }else{
             computation = "glassMishmash"
-            result = "MishMash"
         }
+        result = naming[computation]
         mixer.showResult(computation, result)
+        mixer.sellMaterial(orderItems,computation)
+        orderItems.shift();
     }
+
     showResult(computation, result){   
         resImg.src = images[computation];
         outxt.innerText = result;
+    }
+
+    sellMaterial(orderItems, madeItem){
+        if(orderItems[0] == madeItem){
+            money = money + cost[madeItem];
+            updateMoney(money);
+        }
     }
 }
 
@@ -142,6 +167,7 @@ selectedMaterial.forEach(button=>{
         setview.glass(opOne,opTwo,opThree,opFour)
     })
 })
+//-- CRAFT BUTTON CLICK
 mixBtn.addEventListener('click',button =>{
     mixer.compute(opOne,opTwo,opThree,opFour)
 })
@@ -153,8 +179,9 @@ clrBtn.addEventListener('click', button=>{
 //-- MONEY MANAGER
 let getStoreMoney = localStorage.getItem("store_money")
 coinIcon.addEventListener('click',()=>{
-    if (localStorage.getItem("store_money") === null) {
+    if (getStoreMoney === null) {
         localStorage.setItem('store_money', 0);
+        money = 0;
     } else {
         if(money < getStoreMoney){
             money = getStoreMoney
@@ -166,7 +193,7 @@ coinIcon.addEventListener('click',()=>{
 })
 
 function updateMoney(){
-    moneytxt.innerText = money;
+    moneytxt.innerText = Math.round(money * 100) / 100;
 }
 
 //-- ORDER MODAL
