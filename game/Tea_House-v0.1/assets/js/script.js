@@ -114,7 +114,6 @@ class Mixer{
         result = naming[computation]
         mixer.showResult(computation, result)
         mixer.sellMaterial(orderItems,computation);
-        orderItems.shift();
     }
 
     showResult(computation, result){   
@@ -125,6 +124,7 @@ class Mixer{
     sellMaterial(orderItems, madeItem){
         if(orderItems[0] == madeItem){
             money = money + cost[madeItem];
+            orderItems.shift();
         }
     }
 }
@@ -228,7 +228,7 @@ coinIcon.addEventListener('click',()=>{
 
 
 window.addEventListener("DOMContentLoaded",()=>{
-    
+
     setview.orderItemsView()
     mymoney.getStoredMoney()
     setview.updateMoneyView()
