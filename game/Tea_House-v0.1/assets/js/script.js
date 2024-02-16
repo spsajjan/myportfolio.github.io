@@ -1,11 +1,14 @@
 //-- View Constants
+let money = 0;
 let opOneView = document.querySelector(".op-one")
 let opTwoView = document.querySelector(".op-two")
 let opThreeView = document.querySelector(".op-three")
 let opFourView = document.querySelector(".op-four")
+let coinIcon = document.querySelector(".coin-icon")
 let resImg = document.querySelector(".res-img")
 
 
+let moneytxt = document.querySelector(".money-text")
 let outxt = document.querySelector(".output-text")
 let selectedMaterial = document.querySelectorAll("[data-material]")
 let mixBtn = document.querySelector("[data-mix]")
@@ -129,6 +132,8 @@ class setView{
         }
     }
 }
+
+
 const mixer = new Mixer(opOne, opTwo, opThree, opFour)
 let setview = new setView(opOne,opTwo,opThree,opFour)
 selectedMaterial.forEach(button=>{
@@ -145,8 +150,29 @@ clrBtn.addEventListener('click', button=>{
     setview.glass(opOne,opTwo,opThree,opFour)
 })
 
+//-- MONEY MANAGER
+let getStoreMoney = localStorage.getItem("store_money")
+coinIcon.addEventListener('click',()=>{
+    if (localStorage.getItem("store_money") === null) {
+        localStorage.setItem('store_money', 0);
+    } else {
+        if(money < getStoreMoney){
+            money = getStoreMoney
+        }else{
+            localStorage.setItem("store_money",money)
+        }
+    }
+    updateMoney();
+})
+
+function updateMoney(){
+    moneytxt.innerText = money;
+}
+
+//-- ORDER MODAL
 window.addEventListener("DOMContentLoaded",()=>{
     setTimeout(()=>{
         $('#orderModal').modal('show')
     },10000)
+    updateMoney();
 })

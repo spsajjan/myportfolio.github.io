@@ -15,21 +15,21 @@ body{
     width: auto;
 }
 .glass-img{
-    height: 65px;
-    width: 65px;
+    height: 55px;
+    width: 55px;
 }
 .g-container{
     border-radius: 10px;
-    height: 350px;
-    width: 100px;
+    height: 280px;
+    width: 70px;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-    margin: 10px;
+    padding: 2px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
 }
 .g-container img{
-    margin: 10px;
+    margin: 5px;
 }
 
 .output{
@@ -43,7 +43,7 @@ body{
 }
 
 .output .res-img{
-    margin: 30px;
+    margin: 10px;
     height: 130px;
     width: auto;
 }
@@ -51,4 +51,25 @@ body{
 .coin-icon{
     height: 50px;
     width: 50px;
+}
+
+.output-container{
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.order-details{
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.material-container{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
 }
