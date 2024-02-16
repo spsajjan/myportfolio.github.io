@@ -6,6 +6,7 @@ let opThreeView = document.querySelector(".op-three")
 let opFourView = document.querySelector(".op-four")
 let coinIcon = document.querySelector(".coin-icon")
 let resImg = document.querySelector(".res-img")
+let orderList = document.querySelector(".order-list")
 
 
 let moneytxt = document.querySelector(".money-text")
@@ -15,7 +16,7 @@ let mixBtn = document.querySelector("[data-mix]")
 let clrBtn = document.querySelector("[data-clear]")
 
 //-- Other Variables
-let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0
+let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0, item
 
 var images = {
     //-- IN GLASS IMAGES LINK
@@ -112,7 +113,7 @@ class Mixer{
         }
         result = naming[computation]
         mixer.showResult(computation, result)
-        mixer.sellMaterial(orderItems,computation)
+        mixer.sellMaterial(orderItems,computation);
         orderItems.shift();
     }
 
@@ -124,12 +125,25 @@ class Mixer{
     sellMaterial(orderItems, madeItem){
         if(orderItems[0] == madeItem){
             money = money + cost[madeItem];
-            updateMoney(money);
+        }
+    }
+}
+class myMoney{
+    getStoredMoney(){
+        if (getStoreMoney === null) {
+            localStorage.setItem('store_money', 0);
+            money = 0;
+        } else {
+            if(money < getStoreMoney){
+                money = getStoreMoney
+            }else{
+                localStorage.setItem("store_money",money)
+            }
         }
     }
 }
 
-class setView{
+class updateInGlass{
     glass(opOne,opTwo,opThree,opFour){
         // OPTION ONE
         if(opOne!=undefined){
@@ -158,48 +172,71 @@ class setView{
     }
 }
 
+class setView{
+    orderItemsView(){
+        var fragList = document.createDocumentFragment();
+        orderItems.forEach(function (element) {
+            item = naming[element]
+            var p = document.createElement('p');
+            p.textContent = item;
+            fragList.appendChild(p);
+         });
+        orderList.appendChild(fragList);
+    }
+    updateMoneyView(){
+        //-- Round up money decimals
+        money = Math.round(money * 100) / 100;
+        moneytxt.innerText = money;
+    }
+}
 
+function empty(element) {
+    element.textContent = ""; 
+ }
+let mymoney = new myMoney()
 const mixer = new Mixer(opOne, opTwo, opThree, opFour)
-let setview = new setView(opOne,opTwo,opThree,opFour)
+let updateinglass = new updateInGlass(opOne,opTwo,opThree,opFour)
+let setview = new setView()
+
 selectedMaterial.forEach(button=>{
     button.addEventListener('click',()=>{
         mixer.appendMaterial(button.getAttribute("data-material"))
-        setview.glass(opOne,opTwo,opThree,opFour)
+        updateinglass.glass(opOne,opTwo,opThree,opFour)
     })
 })
+
 //-- CRAFT BUTTON CLICK
 mixBtn.addEventListener('click',button =>{
     mixer.compute(opOne,opTwo,opThree,opFour)
+    empty(orderList);
+    setview.orderItemsView()
+    setview.updateMoneyView()
 })
+
+//-- WASH BUTTON CLICK
 clrBtn.addEventListener('click', button=>{
     mixer.clear();
-    setview.glass(opOne,opTwo,opThree,opFour)
+    updateinglass.glass(opOne,opTwo,opThree,opFour)
 })
 
 //-- MONEY MANAGER
 let getStoreMoney = localStorage.getItem("store_money")
 coinIcon.addEventListener('click',()=>{
-    if (getStoreMoney === null) {
-        localStorage.setItem('store_money', 0);
-        money = 0;
-    } else {
-        if(money < getStoreMoney){
-            money = getStoreMoney
-        }else{
-            localStorage.setItem("store_money",money)
-        }
-    }
-    updateMoney();
+    mymoney.getStoredMoney()
+    setview.updateMoneyView()
 })
 
-function updateMoney(){
-    moneytxt.innerText = Math.round(money * 100) / 100;
-}
 
-//-- ORDER MODAL
 window.addEventListener("DOMContentLoaded",()=>{
+    
+    setview.orderItemsView()
+    mymoney.getStoredMoney()
+    setview.updateMoneyView()
+    //-- ORDER MODAL
     setTimeout(()=>{
         $('#orderModal').modal('show')
     },10000)
-    updateMoney();
+    setview.updateMoneyView();
 })
+
+
