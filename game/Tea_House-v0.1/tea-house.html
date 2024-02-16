@@ -56,11 +56,13 @@
                     </div>
                 </div>
                 <div class="material-container">
-                    <button data-material="water"><img src="./assets/img/hot-water-can.png" alt="" class="icon" ></button>
-                    <button data-material="coffee_beans"><img src="./assets/img/material/bag-coffee-beans.png" alt="" class="icon" ></button>
-                    <button data-material="fresh_leaves"><img src="./assets/img/material/bag-fresh-tea-leaf.png" alt="" class="icon" ></button>
-                    <button data-material="lemon_grass"><img src="./assets/img/material/bag-lemon-grass.png" alt="" class="icon" ></button>
-                    <button data-material="fresh_rosemary"><img src="./assets/img/material/bag-rosemary.png" alt="" class="icon" ></button>
+                    <button data-material="water" title="Hot Water"><img src="./assets/img/hot-water-can.png" alt="" class="icon" ></button>
+                    <button data-material="coffee_beans" title="Coffee Beans"><img src="./assets/img/material/bag-coffee-beans.png" alt="" class="icon" ></button>
+                    <button data-material="fresh_leaves" title="Fresh Tea Leaves"><img src="./assets/img/material/bag-fresh-tea-leaf.png" alt="" class="icon" ></button>
+                    <button data-material="lemon_grass" title="Fresh Lemon Grass Leaves"><img src="./assets/img/material/bag-lemon-grass.png" alt="" class="icon" ></button>
+                    <button data-material="fresh_rosemary" title="Fresh Rosemary Leaves"><img src="./assets/img/material/bag-rosemary.png" alt="" class="icon" ></button>
+                    <button data-material="dried_rosemary" title="Dried Rosemary Leaves"><img src="./assets/img/material/jar-rosemary-dried.png" alt="" class="icon" ></button>
+                    <button data-material="oolong_leaves" title="Semi Fermented Oolong Leaves"><img src="./assets/img/material/jar-oolong-leaves.png" alt="" class="icon" ></button>
                 </div>
             </div>
         </div>
@@ -85,6 +87,28 @@
     </div>
   </div>
   <!-- Modal Ends -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="craftModal" tabindex="-1" aria-labelledby="craftModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="craftModalLabel">You Made!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="craft-text">Something</p>
+                <div><img class="craft-img" src="./assets/img/glass_fill/glass-water.png" class="img-fluid" alt=""></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Ends -->
+
     </div>
     
     <script src="./assets/js/intro.js"></script>
