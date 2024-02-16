@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Life Simulator v0.1</title>
+  <link rel="stylesheet" href="./assets/css/intro.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+<link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+<body onload="display(); bank_money(); achievements();">
+  <div class="intro">
+    <div class="intro-img">
+        <img src="./assets/img/pew-die-pie-tuber-icon.jpg" alt="">
+    </div>
+</div>
+  <div id="menu">
+    <a href="#actions">Actions</a>
+    <a href="#fridge">Fridge</a>
+    <a href="#hospital">Hospital</a>
+    <a href="#shop">Shop</a>
+    <a href="#work">Work</a>
+    <a href="#bank">Bank</a>
+    <a href="#youtube">Youtube</a>
+    <a href="#date">Social</a>
+    <a href="#garden">Garden</a>
+    <a href="#gamble">Gamble</a>
+    <a href="#achievementmenu">Achievements</a>
+  </div>
+  <div class="content">
+    <p>If some options are not working, they are either locked, or closed.</p>
+  
+    <div id="character">
+      <h1>Character info</h1>
+      <progress id="healthbar" max="100"></progress> (<span id="healthBarCount"></span>%) Health<br>
+      <progress id="foodbar" max="100"></progress> (<span id="foodBarCount"></span>%) Food<br>
+      <progress id="energybar" max="100"></progress> (<span id="energyBarCount"></span>%) Energy<br>
+      <div class="money">Money: <span id="moneyshow"></span></div>
+      <div class="day">Day: <span id="dayshow"></span></div>
+      <button onclick="tutorial();">Click me for tutorial</button>
+      <div class="time">Time: <span id="timeshow"></span>:00</div>
+    </div>
+  
+    <div id="contents">
+      
+    <menu id="achievementmenu">
+      <h1>Your progress</h1>
+      <h2>Top Youtube</h2>
+      <div id="king">KING OF YOUTUBE - 1 Trillion (12 zeros)</div>
+      <div id="one">DewPiePie - 100 million</div>
+      <div id="two">Msosh - 40 million</div>
+      <div id="three">GanossVaming - 25 million</div>
+      <div id="four">TheBineFro$ - 15 million</div>
+      <div id="five">Sky Does Shit - 10 million</div>
+      <div id="six">Oyler Takley - 8.5 million</div>
+      <div id="seven">JocketRump - 5 million</div>
+      <div id="eight">Ksrillex - 1 millon</div>
+      <div id="nine">SaptainCparklez - 500 000</div>
+      <div id="ten">Teeps - 1</div>
+      <p>Each of the beaten youtuber give you random perks!</p>
+      <p>Perk list:</p>
+        Money regen<br>
+        Health regen<br>
+        Food regen<br>
+        Energy regen<br>
+        Sub regen<br>
+        Boost regen<br>
+        Xp regen<br>
+    </menu>
+  
+    <menu id="actions">
+      <h1>Player actions</h1>
+      <button onclick="sleep();">Sleep</button><br>
+      <button onclick="idle();">Idle 1 hour</button><br>
+      <button onclick="walk();">Go on adventure (walk)</button><br>
+      <p>Adventure costs -25 food and -25 energy</p>
+    </menu>
+  
+    <menu id="fridge">  
+      <h1>Food actions</h1>
+      <button onclick="eat();">Eat</button>
+      <div class="foodshow"></div>
+      <button onclick="drink();">Drink Energy Drink</button>
+      <div class="edrinkshow"></div>
+    </menu>
+  
+    <menu id="shop">
+      <h1>Shop</h1>
+      <h2>Open times: 7-18</h2>
+      <div id="shop_avail">
+        <input type="number" value="1" id="howmuchfood"></input>
+        <button onclick="buyfood();">Buy food</button>10$<br>
+        <button onclick="buyedrink();">Buy energy drink</button>15$
+      </div>
+      <hr />
+      <p>Food in Fridge</p>
+      <div class="foodshow"></div>
+      <div class="edrinkshow"></div>
+    </menu>
+  
+    <menu id="hospital">
+      <h1>Hospital</h1>
+      <div>
+        <button onclick="healten();">+10 Health</button> 
+        <span>50$</span>
+      </div>
+      <div>
+        <button onclick="healfifty();">+50 Health</button> 
+        <span>200$</span>
+      </div>
+    </menu>
+  
+    <menu id="work">
+      <h1>Work</h1>
+      <h2>Open times: 7-20</h2>
+      <div id="level"></div>
+      <div id="xp"></div>
+      <button onclick="gotowork();" id="workbutton">Go to work!</button>
+      <p>-40 food, -40 energy</p>
+      <div id="salary"></div>
+      <button onclick="crime();" id="crimebutton">Try to commit crime!</button>
+      <p>-40 food, -40 energy</p>
+      <p>High chance of police detection, high reward</p>
+      <p>The more you get caught, the higher prison time</p>
+      <p>Is unlocked on day 8</p>
+      <div id="stealchance"></div>
+    </menu>
+      
+    <menu id="bank">
+      <h1>Bank</h1><br>
+      <h2>Open: All the time</h2>
+      <h2>Interest rate: 2.5% / 7.5 sec</h2><br>
+      <input type="number" id="deposit"></input><button onclick="deposit();">Deposit</button><br>
+    <input type="number" id="withdraw" min="0"></input><button onclick="withdraw();">Withdraw</button><br>
+    <div id="bankinfo"></div>
+    </menu>
+  
+    <menu id="youtube">
+      <h1>Youtube</h1>
+      <input type="text" value="Insert channel name here" id="channelnameinput" maxlength="21"></input>
+    <button onclick="recordvideo();">Record video</button>
+    <p>-20 energy -20 food</p>
+      <div id="channelname"></div>
+      <div id="subshow"></div>
+      <div id="viewshow"></div>
+    <div id="totalviews"></div>
+    <h1>Upgrade</h1>
+    <div id="boostshow"></div>
+    <button onclick="upgradeboost();">Learn to edit</button>50$<br>
+    <button onclick="upgradeboost2();">Editing teacher</button>100$<br>
+    <button onclick="upgradeboost3();">Professional Editor</button>250$<br>
+    <button onclick="upgradeboost4();">Editing college</button>500$<br>
+    <p>You get money for making videos,<br> You get money for each view you get. But in the beginning its not much, good luck PS YOU CAN NAME YOUR CHANNEL!</p>
+    </menu>
+  
+    <menu id="date">
+      <h1>Date</h1>
+      <div id="showlikeness"></div>
+      <div id="datelevel"></div><br>
+      <button onclick="talk();">Talk<br>-5 energy -5 food</button><br>
+      <button onclick="invite();">Invite to cafe<br>-25 money -10 energy +15 food</button><br>
+      <button onclick="comeover();">Go to her place<br>-15 energy +10 food</button><br>
+      <button onclick="buygift();">Buy her a gift<br>-500$</button>
+    </menu>
+  
+    <menu id="garden">
+      <h1>Garden</h1>
+      <button onclick="buytree();">Buy tree!</button>250$
+      <p>Trees make you food automatically.</p>
+      <div id="treeshow"></div>
+    </menu>
+  
+    <menu id="gamble">
+      <h1>Casino</h1>
+      <h2>Open times: 19-23</h2>
+      <div id="gamble_avail">
+        <input type="number" id="gambleinput" min="1"></input>Bet amount<br><br>
+        <button onclick="gambleone();">Play 33/33/33</button>
+        <p>33% chance to get 2x money and 66% chance to lose money!</p><br><br>
+        <button onclick="gambletwo();">Play roulette!</button>
+        <p>generates random number from 1 to 15, pick your color if it lands on your color you get x2 money, if it lands on green and you picked green you get x12 money!<br> 1 = green <br>2-8 = red<br>9-15 = black</p>
+        <input type="radio" name="roulette" id="green">Green</input><br>
+        <input type="radio" name="roulette" id="red">Red</input><br>
+        <input type="radio" name="roulette" id="black">Black</input><br>
+        <div id="gamble_number"></div><br><br><br>
+      </div>
+    </menu>
+    </div>
+    <!-- ./ Contents -->
+  </div>
+  <!-- ./ Content -->
+</body>
+  <script  src="./assets/js/intro.js"></script>
+  <script  src="./assets/js/script.js"></script>
+</body>
+</html>

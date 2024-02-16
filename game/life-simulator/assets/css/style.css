@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Chewy', cursive;
+  font-weight: lighter !important;
+  font-size: 18px;
+}
+
+.content{
+  margin: 0 10px;
+}
+
+h1 {
+  margin-bottom: 5px;
+  border-bottom: 2px dotted black;
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+hr{
+  margin: 10px 0;
+}
+.money{
+  font-size: 24px;
+}
+#moneyshow {
+  color: green;
+  font-size: 24px;
+}
+.day{
+  font-size: 24px;
+}
+#dayshow {
+  color: blue;
+  font-size: 24px;
+}
+.time, .time span{
+  color: yellow;
+  background-color: black;
+  font-size: 48px;
+  margin: 5px;
+  border-radius: 10px;
+}
+menu{
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 270px;
+  float: left;
+  text-align: center;
+}
+#character {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 300px;
+  float: left;
+  text-align: center;
+}
+#actions{
+  width: 250px;
+}
+
+#fridge {
+  width: 200px;
+}
+
+#shop {
+  width: 250px;
+}
+
+#work {
+  width: 250px;
+}
+
+#bank {
+  width: 200px;
+}
+
+#youtube {
+  width: 250px;
+}
+
+#achievementmenu {
+  width: 250px;
+}
+
+#garden {
+  width: 150px;
+}
+
+#gamble {
+  width: 300px;
+}
+
+#date {
+  width: 175px;
+}
+
+button {
+  margin: 2px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+  border: 3px solid black;
+  color: black;
+}
+
+button:hover {
+  border-radius: 5px;
+  background-color: black;
+  border: 3px solid gray;
+  color: white;
+  cursor: pointer;
+}
+
+#howmuchfood{
+  width: 50px;
+  padding: 5px;
+}
+
+input {
+  border-radius: 10%;
+  border: 2px solid black;
+  background-color: white;
+  color: #0000ff;
+  width: 75px;
+}
+
+#channelnameinput {
+  width: 200px;
+}
+
+#salary {
+  color: red;
+  text-decoration: underline;
+}
+
+#stealchance {
+  color: red;
+  text-decoration: underline;
+}
+
+#contents menu {
+  display: none;
+}
+
+#contents menu:target {
+  display: block;
+}
+
+#menu {
+  height: 30px;
+  padding: 15px;
+  background-color: gray;
+}
+#menu a {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: aliceblue;
+  padding: 5px 10px;
+  margin: 2px;
+  font-size: 20px;
+  text-decoration: none;
+}
+a:last-child {
+  margin-right: 15px;
+}
