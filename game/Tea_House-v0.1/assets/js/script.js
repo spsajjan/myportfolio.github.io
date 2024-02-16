@@ -40,7 +40,7 @@ class Mixer{
         opThree = undefined;
         opFour = undefined;
         opMat = undefined;
-        resImg.src = images["glassEmpty"];
+        mixer.showResult("glassEmpty","Empty Glass")
     }
     delete(){
 
@@ -143,4 +143,10 @@ mixBtn.addEventListener('click',button =>{
 clrBtn.addEventListener('click', button=>{
     mixer.clear();
     setview.glass(opOne,opTwo,opThree,opFour)
+})
+
+window.addEventListener("DOMContentLoaded",()=>{
+    setTimeout(()=>{
+        $('#orderModal').modal('show')
+    },10000)
 })
