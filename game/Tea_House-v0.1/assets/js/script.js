@@ -20,6 +20,7 @@ let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0, item
 var images = {
     //-- IN GLASS IMAGES LINK
     plus: "./assets/img/thick-plus-black-icon.png",
+    ice: "./assets/img/in_glass/ice-glass.png",
     water: "./assets/img/in_glass/water-glass.png",
     coffee_beans : "./assets/img/in_glass/coffee-beans-glass.png",
     fresh_leaves : "./assets/img/in_glass/fresh-leaves-glass.png",
@@ -28,28 +29,38 @@ var images = {
     fresh_rosemary: "./assets/img/in_glass/rosemary-fresh-glass.png",
     dried_rosemary: "./assets/img/in_glass/rosemary-dried-glass.png",
     camomile_leaves: "./assets/img/in_glass/camomile-glass.png",
-
+    black_tea_leaves: "./assets/img/in_glass/black-tea-glass.png",
     // -- GLASS FILL IMAGES LINK
     glassEmpty: "./assets/img/glass-empty.png",
+    glassIce: "./assets/img/glass_fill/glass-ice.png",
     glassWater: "./assets/img/glass_fill/glass-water.png",
-    glassCoffee: "./assets/img/glass_fill/glass-coffee.png",
+    glassIcedWater: "./assets/img/glass_fill/glass-ice-water.png",
+    glassAmericano: "./assets/img/glass_fill/glass-americano.png",
+    glassIcedAmericano: "./assets/img/glass_fill/glass-iced-americano.png",
     glassFreshTea: "./assets/img/glass_fill/glass-fresh-leaves-tea.png",
+    glassIcedFreshTea: "./assets/img/glass_full/glass-iced-fresh-leaves-tea.png",
     glassOolongTea: "./assets/img/glass_fill/glass-oolong-tea.png",
     glassLemonGrass: "./assets/img/glass_fill/glass-lemon-grass.png",
     glassFreshRosemary: "./assets/img/glass_fill/glass-rosemary-fresh.png",
     glassDriedRosemary: "./assets/img/glass_fill/glass-rosemary-dried.png",
     glassCamomile: "./assets/img/glass_fill/glass-camomile.png",
+    glassBlackTea: "./assets/img/glass_fill/glass-black-tea.png",
 
     glassMishmash: "./assets/img/glass_fill/glass-mishmash.png"
 }
 
 var cost = {
-    glassEmpty: 0,
+    glassEmpty: 0.0,
+    glassIce: 1.0,
     mishmash: 1.05,
     glassWater: 1.25,
-    glassCoffee: 2.15,
+    glassAmericano: 2.15,
+    glassIcedAmericano: 2.35,
     glassFreshTea: 3.55,
-    glassOolongTea: 3.62,
+    glassIcedFreshTea: 3.62,
+    glassOolongTea: 3.65,
+    glassIcedOolongTea: 3.68,
+    glassBlackTea: 3.70,
     glassLemonGrass: 3.75,
     glassFreshRosemary: 4.15,
     glassDriedRosemary: 5.85,
@@ -59,9 +70,12 @@ var cost = {
 var naming = {
     glassEmpty: "Empty Glass",
     glassWater: "Hot Water",
-    glassCoffee: "Hot Coffee",
+    glassIce : "Ice",
+    glassIcedWater: "Cold Water",
+    glassAmericano: "Hot Americano",
     glassFreshTea: "Fresh Leaf Hot Tea",
     glassOolongTea: "Semi Fermented Oolong Tea",
+    glassBlackTea: "Fully Fermented Black Tea",
     glassLemonGrass: "Fresh Lemon Grass Hot Tea",
     glassFreshRosemary: "Fresh Hot Rosemary Tea",
     glassDriedRosemary: "Dried Hot Rosemary Tea",
@@ -70,7 +84,6 @@ var naming = {
 }
 
 let orderItems = ["glassFreshRosemary", "glassLemonGrass"]
-
 class Mixer{
     clear(){
         opOne = undefined;
@@ -99,13 +112,15 @@ class Mixer{
     compute(opOne, opTwo, opThree, opFour){
         if(opThree == undefined && opFour == undefined){
             if(opOne=="water"){
+                if(opTwo=="black_tea_leaves"){computation="glassBlackTea"}
+                if(opTwo=="ice"){computation="glassIcedWater"}
                 if(opTwo=="camomile_leaves"){computation="glassCamomile"}
                 if(opTwo=="oolong_leaves"){computation="glassOolongTea"}
                 if(opTwo=="dried_rosemary"){computation="glassDriedRosemary"}
                 if(opTwo=="fresh_rosemary"){computation="glassFreshRosemary"}
                 if(opTwo=="lemon_grass"){computation="glassLemonGrass"}
                 if(opTwo=="fresh_leaves"){computation="glassFreshTea"}
-                if(opTwo=="coffee_beans"){computation="glassCoffee"}
+                if(opTwo=="coffee_beans"){computation="glassAmericano"}
                 if(opTwo=="water"){computation="glassWater"}
             }else{computation="glassMishmash"}
         }else{computation="glassMishmash"}
