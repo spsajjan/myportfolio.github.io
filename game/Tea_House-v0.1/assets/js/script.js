@@ -66,6 +66,7 @@ var naming = {
     glassFreshRosemary: "Fresh Hot Rosemary Tea",
     glassDriedRosemary: "Dried Hot Rosemary Tea",
     glassCamomile: "Camomile Tea",
+    glassMishmash: "Mishmash"
 }
 
 let orderItems = ["glassFreshRosemary", "glassLemonGrass"]
