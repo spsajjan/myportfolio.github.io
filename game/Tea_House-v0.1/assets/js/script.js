@@ -1,5 +1,4 @@
 //-- View Constants
-let madeItem = "glassFreshRosemary";
 let opOneView = document.querySelector(".op-one")
 let opTwoView = document.querySelector(".op-two")
 let opThreeView = document.querySelector(".op-three")
@@ -28,6 +27,7 @@ var images = {
     lemon_grass : "./assets/img/in_glass/lemon-grass-glass.png",
     fresh_rosemary: "./assets/img/in_glass/rosemary-fresh-glass.png",
     dried_rosemary: "./assets/img/in_glass/rosemary-dried-glass.png",
+    camomile_leaves: "./assets/img/in_glass/camomile-glass.png",
 
     // -- GLASS FILL IMAGES LINK
     glassEmpty: "./assets/img/glass-empty.png",
@@ -38,6 +38,7 @@ var images = {
     glassLemonGrass: "./assets/img/glass_fill/glass-lemon-grass.png",
     glassFreshRosemary: "./assets/img/glass_fill/glass-rosemary-fresh.png",
     glassDriedRosemary: "./assets/img/glass_fill/glass-rosemary-dried.png",
+    glassCamomile: "./assets/img/glass_fill/glass-camomile.png",
 
     glassMishmash: "./assets/img/glass_fill/glass-mishmash.png"
 }
@@ -52,6 +53,7 @@ var cost = {
     glassLemonGrass: 3.75,
     glassFreshRosemary: 4.15,
     glassDriedRosemary: 5.85,
+    glassCamomile: 6.05,
 }
 
 var naming = {
@@ -63,6 +65,7 @@ var naming = {
     glassLemonGrass: "Fresh Lemon Grass Hot Tea",
     glassFreshRosemary: "Fresh Hot Rosemary Tea",
     glassDriedRosemary: "Dried Hot Rosemary Tea",
+    glassCamomile: "Camomile Tea",
 }
 
 let orderItems = ["glassFreshRosemary", "glassLemonGrass"]
@@ -74,10 +77,7 @@ class Mixer{
         opThree = undefined;
         opFour = undefined;
         opMat = undefined;
-        mixer.showResult("glassEmpty","Empty Glass")
-    }
-    delete(){
-
+        mixer.showResult("glassEmpty",naming["glassEmpty"])
     }
     appendMaterial(newOpMat){
         if(opMat != undefined){
@@ -97,34 +97,32 @@ class Mixer{
     }
     compute(opOne, opTwo, opThree, opFour){
         if(opThree == undefined && opFour == undefined){
-            if(opOne == "water" && opTwo == "oolong_leaves"){computation = "glassOolongTea"}
-            else if(opOne == "water" && opTwo == "dried_rosemary"){computation = "glassDriedRosemary"}
-            else if(opOne == "water" && opTwo == "fresh_rosemary"){computation = "glassFreshRosemary"}
-            else if(opOne == "water" && opTwo == "lemon_grass"){computation = "glassLemonGrass"}
-            else if(opOne == "water" && opTwo == "fresh_leaves"){computation = "glassFreshTea"}
-            else if(opOne == "water" && opTwo == "water"){computation = "glassWater"}
-            else if(opOne == "water" && opTwo == "coffee_beans"){computation = "glassCoffee"}
-            else{computation = "glassMishmash"}
-        }else{computation = "glassMishmash"}
+            if(opOne=="water"){
+                if(opTwo=="camomile_leaves"){computation="glassCamomile"}
+                if(opTwo=="oolong_leaves"){computation="glassOolongTea"}
+                if(opTwo=="dried_rosemary"){computation="glassDriedRosemary"}
+                if(opTwo=="fresh_rosemary"){computation="glassFreshRosemary"}
+                if(opTwo=="lemon_grass"){computation="glassLemonGrass"}
+                if(opTwo=="fresh_leaves"){computation="glassFreshTea"}
+                if(opTwo=="coffee_beans"){computation="glassCoffee"}
+                if(opTwo=="water"){computation="glassWater"}
+            }else{computation="glassMishmash"}
+        }else{computation="glassMishmash"}
         result = naming[computation]
         mixer.showResult(computation, result)
         mixer.sellMaterial(orderItems,computation)
         mixer.updateCraftModal(computation)
-
     }
-
     showResult(computation, result){   
         resImg.src = images[computation];
         outxt.innerText = result;
     }
-
     sellMaterial(orderItems, madeItem){
         if(orderItems[0] == madeItem){
             money = money + cost[madeItem];
             orderItems.shift();
         }
     }
-
     updateCraftModal(computation){
         $(".craft-text").text(naming[computation]);
         $('.craft-img').attr('src',images[computation]);
