@@ -13,9 +13,10 @@ let outxt = document.querySelector(".output-text")
 let selectedMaterial = document.querySelectorAll("[data-material]")
 let mixBtn = document.querySelector("[data-mix]")
 let clrBtn = document.querySelector("[data-clear]")
+let acceptOrderBtn = document.querySelector("#accept-order");
 
 //-- Other Variables
-let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0, item
+let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0, item, drinkNow, shopFullAlert = false
 
 var customers = {
     grandma: "./assets/img/customer-icons/Icon_Grandma.png",
@@ -51,7 +52,7 @@ var drinks = [
     "glassLemonGrass",
     "glassFreshRosemary",
     "glassDriedRosemary",
-    "glassCamomole",
+    "glassCamomile",
 ]
 
 var images = {
@@ -133,7 +134,7 @@ var naming = {
     glassMishmash: "Mishmash"
 }
 
-let orderItems = ["glassFreshRosemary", "glassLemonGrass"]
+let orderItems = []
 class Mixer {
     clear() {
         opOne = undefined;
@@ -161,7 +162,8 @@ class Mixer {
     }
     compute(opOne, opTwo, opThree, opFour) {
         if (opThree == undefined && opFour == undefined) {
-            if (opOne == "water") {
+            if (opOne == "ice" && opTwo == "ice") { computation = "glassIce"; }
+            else if (opOne == "water") {
                 if (opTwo == "black_tea_leaves") { computation = "glassBlackTea" }
                 if (opTwo == "ice") { computation = "glassIcedWater" }
                 if (opTwo == "camomile_leaves") { computation = "glassCamomile" }
@@ -188,6 +190,7 @@ class Mixer {
             money = money + cost[madeItem];
             orderItems.shift();
         }
+        console.log(orderItems);
     }
     updateCraftModal(computation) {
         $(".craft-text").text(naming[computation]);
@@ -298,17 +301,50 @@ coinIcon.addEventListener('click', () => {
     setview.updateMoneyView()
 })
 
+function checkOrders() {
+    if (orderInLimit()) {
+        setTimeout(() => {
+            callCustomer();
+        }, 20000)
+    } else {
+        if (shopFullAlert == (false || undefined)) {
+            alert("Your shop is full please finish the orders.");
+            shopFullAlert == true;
+        }
+        setTimeout(() => {
+            checkOrders();
+        }, 20000)
+    }
+}
+
+
+function orderInLimit() {
+    if (orderItems.length < 5) {
+        return true
+    } else {
+        return false
+    }
+}
+// -- ACCEPT ORDER BUTTON
+function acceptOrder() {
+    orderItems.push(drinkNow)
+    $('#orderModal').modal('hide')
+    setview.updateOrderItemsView()
+}
+acceptOrderBtn.addEventListener('click', () => {
+    acceptOrder()
+})
+
 function callCustomer() {
     let cust_keys = Object.keys(customers)
     let cust_random = random_item(cust_keys)
-    let drinkNow = random_item_array(drinks)
-    orderItems.push(drinkNow);
+    drinkNow = random_item_array(drinks)
     $('#cust-img').attr("src", customers[cust_random])
+    $('#cust-txt').html(naming[drinkNow])
     $('#orderModal').modal('show')
     setTimeout(() => {
-        callCustomer();
-        setview.updateOrderItemsView()
-    }, 30000)
+        checkOrders();
+    }, 20000)
 }
 
 
@@ -318,9 +354,8 @@ window.addEventListener("DOMContentLoaded", () => {
     setview.updateMoneyView()
     //-- ORDER MODAL
     setTimeout(() => {
-        callCustomer();
-        setview.updateOrderItemsView()
-    }, 10000)
+        checkOrders();
+    }, 20000)
     setview.updateMoneyView();
 })
 
