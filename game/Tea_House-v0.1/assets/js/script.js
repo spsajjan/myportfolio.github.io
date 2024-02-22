@@ -28,24 +28,41 @@ var customers = {
     lina_young: "./assets/img/customer-icons/Icon_Lina_Young.png",
     sarah_suthers: "./assets/img/customer-icons/Icon_Sarah_Suthers.png",
 }
-let cust_keys = Object.keys(customers);
-let cust_random = cust_keys[Math.floor(Math.random() * cust_keys.length)]
-console.log(cust_random)
+
+function random_item_array(items) {
+    return items[Math.floor(Math.random() * items.length)];
+}
 function random_item(items) {
     // Use Math.random() to generate a random number between 0 and 1,
     // multiply it by the length of the array, and use Math.floor() to round down to the nearest integer
     return items[Math.floor(Math.random() * items.length)];
 }
 
+var drinks = [
+    "glassIce",
+    "glassWater",
+    "glassIcedWater",
+    "glassAmericano",
+    "glassIcedAmericano",
+    "glassFreshTea",
+    "glassIcedFreshTea",
+    "glassOolongTea",
+    "glassBlackTea",
+    "glassLemonGrass",
+    "glassFreshRosemary",
+    "glassDriedRosemary",
+    "glassCamomole",
+]
+
 var images = {
     //-- IN GLASS IMAGES LINK
     plus: "./assets/img/thick-plus-black-icon.png",
     ice: "./assets/img/in_glass/ice-glass.png",
     water: "./assets/img/in_glass/water-glass.png",
-    coffee_beans : "./assets/img/in_glass/coffee-beans-glass.png",
-    fresh_leaves : "./assets/img/in_glass/fresh-leaves-glass.png",
+    coffee_beans: "./assets/img/in_glass/coffee-beans-glass.png",
+    fresh_leaves: "./assets/img/in_glass/fresh-leaves-glass.png",
     oolong_leaves: "./assets/img/in_glass/oolong-tea-glass.png",
-    lemon_grass : "./assets/img/in_glass/lemon-grass-glass.png",
+    lemon_grass: "./assets/img/in_glass/lemon-grass-glass.png",
     fresh_rosemary: "./assets/img/in_glass/rosemary-fresh-glass.png",
     dried_rosemary: "./assets/img/in_glass/rosemary-dried-glass.png",
     camomile_leaves: "./assets/img/in_glass/camomile-glass.png",
@@ -60,17 +77,17 @@ var images = {
     glassFreshTea: "./assets/img/glass_fill/glass-fresh-leaves-tea.png",
     glassIcedFreshTea: "./assets/img/glass_full/glass-iced-fresh-leaves-tea.png",
     glassOolongTea: "./assets/img/glass_fill/glass-oolong-tea.png",
+    glassBlackTea: "./assets/img/glass_fill/glass-black-tea.png",
     glassLemonGrass: "./assets/img/glass_fill/glass-lemon-grass.png",
     glassFreshRosemary: "./assets/img/glass_fill/glass-rosemary-fresh.png",
     glassDriedRosemary: "./assets/img/glass_fill/glass-rosemary-dried.png",
     glassCamomile: "./assets/img/glass_fill/glass-camomile.png",
-    glassBlackTea: "./assets/img/glass_fill/glass-black-tea.png",
 
     glassMishmash: "./assets/img/glass_fill/glass-mishmash.png"
 }
 
 var cost = {
-    glassEmpty: 0.0,
+    glassEmpty: 0.6,
     glassIce: 1.0,
     mishmash: 1.05,
     glassWater: 1.25,
@@ -88,9 +105,22 @@ var cost = {
 }
 
 var naming = {
+
+    // -- CUSTOMER NAMING
+    grandma: "Grandma",
+    ivy_sheehan: "Ivy Sheehan",
+    hyun_kim: "Hyun Kim",
+    sophia: "Sophia",
+    summer: "Summer",
+    don_blaine: "Don Blaine",
+    jack_gilmore: "Jack Gilmore",
+    lina_young: "Lina Young",
+    sarah_suthers: "Sarah Suthers",
+
+    // -- MATERIALS NAMING
     glassEmpty: "Empty Glass",
     glassWater: "Hot Water",
-    glassIce : "Ice",
+    glassIce: "Ice",
     glassIcedWater: "Cold Water",
     glassAmericano: "Hot Americano",
     glassFreshTea: "Fresh Leaf Hot Tea",
@@ -104,122 +134,126 @@ var naming = {
 }
 
 let orderItems = ["glassFreshRosemary", "glassLemonGrass"]
-class Mixer{
-    clear(){
+class Mixer {
+    clear() {
         opOne = undefined;
         opTwo = undefined;
         opThree = undefined;
         opFour = undefined;
         opMat = undefined;
-        mixer.showResult("glassEmpty",naming["glassEmpty"])
+        mixer.showResult("glassEmpty", naming["glassEmpty"])
     }
-    appendMaterial(newOpMat){
-        if(opMat != undefined){
-            opMat = opMat+","+newOpMat;
-        }else{
+    appendMaterial(newOpMat) {
+        if (opMat != undefined) {
+            opMat = opMat + "," + newOpMat;
+        } else {
             opMat = newOpMat;
         }
         mixer.assignMaterial(opMat)
     }
-    assignMaterial(opMat){
+    assignMaterial(opMat) {
         opMat = opMat.split(",");
-        let newOpMat = opMat.slice(0,4)
+        let newOpMat = opMat.slice(0, 4)
         opOne = newOpMat[0];
         opTwo = newOpMat[1];
         opThree = newOpMat[2];
         opFour = newOpMat[3];
     }
-    compute(opOne, opTwo, opThree, opFour){
-        if(opThree == undefined && opFour == undefined){
-            if(opOne=="water"){
-                if(opTwo=="black_tea_leaves"){computation="glassBlackTea"}
-                if(opTwo=="ice"){computation="glassIcedWater"}
-                if(opTwo=="camomile_leaves"){computation="glassCamomile"}
-                if(opTwo=="oolong_leaves"){computation="glassOolongTea"}
-                if(opTwo=="dried_rosemary"){computation="glassDriedRosemary"}
-                if(opTwo=="fresh_rosemary"){computation="glassFreshRosemary"}
-                if(opTwo=="lemon_grass"){computation="glassLemonGrass"}
-                if(opTwo=="fresh_leaves"){computation="glassFreshTea"}
-                if(opTwo=="coffee_beans"){computation="glassAmericano"}
-                if(opTwo=="water"){computation="glassWater"}
-            }else{computation="glassMishmash"}
-        }else{computation="glassMishmash"}
+    compute(opOne, opTwo, opThree, opFour) {
+        if (opThree == undefined && opFour == undefined) {
+            if (opOne == "water") {
+                if (opTwo == "black_tea_leaves") { computation = "glassBlackTea" }
+                if (opTwo == "ice") { computation = "glassIcedWater" }
+                if (opTwo == "camomile_leaves") { computation = "glassCamomile" }
+                if (opTwo == "oolong_leaves") { computation = "glassOolongTea" }
+                if (opTwo == "dried_rosemary") { computation = "glassDriedRosemary" }
+                if (opTwo == "fresh_rosemary") { computation = "glassFreshRosemary" }
+                if (opTwo == "lemon_grass") { computation = "glassLemonGrass" }
+                if (opTwo == "fresh_leaves") { computation = "glassFreshTea" }
+                if (opTwo == "coffee_beans") { computation = "glassAmericano" }
+                if (opTwo == "water") { computation = "glassWater" }
+            } else { computation = "glassMishmash" }
+        } else { computation = "glassMishmash" }
         result = naming[computation]
         mixer.showResult(computation, result)
-        mixer.sellMaterial(orderItems,computation)
+        mixer.sellMaterial(orderItems, computation)
         mixer.updateCraftModal(computation)
     }
-    showResult(computation, result){   
+    showResult(computation, result) {
         resImg.src = images[computation];
         outxt.innerText = result;
     }
-    sellMaterial(orderItems, madeItem){
-        if(orderItems[0] == madeItem){
+    sellMaterial(orderItems, madeItem) {
+        if (orderItems[0] == madeItem) {
             money = money + cost[madeItem];
             orderItems.shift();
         }
     }
-    updateCraftModal(computation){
+    updateCraftModal(computation) {
         $(".craft-text").text(naming[computation]);
-        $('.craft-img').attr('src',images[computation]);
+        $('.craft-img').attr('src', images[computation]);
     }
 }
-class myMoney{
-    getStoredMoney(){
+class myMoney {
+    getStoredMoney() {
         if (getStoreMoney === null) {
             localStorage.setItem('store_money', 0);
             money = 0;
         } else {
-            if(money < getStoreMoney){
+            if (money < getStoreMoney) {
                 money = getStoreMoney
-            }else{
-                localStorage.setItem("store_money",money)
+            } else {
+                localStorage.setItem("store_money", money)
             }
         }
     }
 }
 
-class updateInGlass{
-    glass(opOne,opTwo,opThree,opFour){
+class updateInGlass {
+    glass(opOne, opTwo, opThree, opFour) {
         // OPTION ONE
-        if(opOne!=undefined){
-                opOneView.src = images[opOne];
-        }else{
-            opOneView.src= images["plus"];
+        if (opOne != undefined) {
+            opOneView.src = images[opOne];
+        } else {
+            opOneView.src = images["plus"];
         }
         // OPTION TWO
-        if(opTwo!=undefined){
-                opTwoView.src = images[opTwo];
-        }else{
-            opTwoView.src= images["plus"];
+        if (opTwo != undefined) {
+            opTwoView.src = images[opTwo];
+        } else {
+            opTwoView.src = images["plus"];
         }
         // OPTION THREE
-        if(opThree!=undefined){
+        if (opThree != undefined) {
             opThreeView.src = images[opThree];
-        }else{
-                opThreeView.src= images["plus"];
+        } else {
+            opThreeView.src = images["plus"];
         }
         // OPTION FOUR
-        if(opFour!=undefined){
-                opFourView.src = images[opFour];
-        }else{
-            opFourView.src= images.plus;
+        if (opFour != undefined) {
+            opFourView.src = images[opFour];
+        } else {
+            opFourView.src = images.plus;
         }
     }
 }
 
-class setView{
-    orderItemsView(){
+class setView {
+    orderItemsView() {
         var fragList = document.createDocumentFragment();
         orderItems.forEach(function (element) {
             item = naming[element]
             var p = document.createElement('p');
             p.textContent = item;
             fragList.appendChild(p);
-         });
+        });
         orderList.appendChild(fragList);
     }
-    updateMoneyView(){
+    updateOrderItemsView() {
+        $('.order-list').empty();
+        setview.orderItemsView();
+    }
+    updateMoneyView() {
         //-- Round up money decimals
         money = Math.round(money * 100) / 100;
         moneytxt.innerText = money;
@@ -227,24 +261,24 @@ class setView{
 }
 
 function empty(element) {
-    element.textContent = ""; 
+    element.textContent = "";
 }
 
 let mymoney = new myMoney()
 const mixer = new Mixer(opOne, opTwo, opThree, opFour)
-let updateinglass = new updateInGlass(opOne,opTwo,opThree,opFour)
+let updateinglass = new updateInGlass(opOne, opTwo, opThree, opFour)
 let setview = new setView()
 
-selectedMaterial.forEach(button=>{
-    button.addEventListener('click',()=>{
+selectedMaterial.forEach(button => {
+    button.addEventListener('click', () => {
         mixer.appendMaterial(button.getAttribute("data-material"))
-        updateinglass.glass(opOne,opTwo,opThree,opFour)
+        updateinglass.glass(opOne, opTwo, opThree, opFour)
     })
 })
 
 //-- CRAFT BUTTON CLICK
-mixBtn.addEventListener('click',button =>{
-    mixer.compute(opOne,opTwo,opThree,opFour)
+mixBtn.addEventListener('click', button => {
+    mixer.compute(opOne, opTwo, opThree, opFour)
     empty(orderList);
     setview.orderItemsView()
     setview.updateMoneyView()
@@ -252,27 +286,41 @@ mixBtn.addEventListener('click',button =>{
 })
 
 //-- WASH BUTTON CLICK
-clrBtn.addEventListener('click', button=>{
+clrBtn.addEventListener('click', button => {
     mixer.clear();
-    updateinglass.glass(opOne,opTwo,opThree,opFour)
+    updateinglass.glass(opOne, opTwo, opThree, opFour)
 })
 
 //-- MONEY MANAGER
 let getStoreMoney = localStorage.getItem("store_money")
-coinIcon.addEventListener('click',()=>{
+coinIcon.addEventListener('click', () => {
     mymoney.getStoredMoney()
     setview.updateMoneyView()
 })
 
+function callCustomer() {
+    let cust_keys = Object.keys(customers)
+    let cust_random = random_item(cust_keys)
+    let drinkNow = random_item_array(drinks)
+    orderItems.push(drinkNow);
+    $('#cust-img').attr("src", customers[cust_random])
+    $('#orderModal').modal('show')
+    setTimeout(() => {
+        callCustomer();
+        setview.updateOrderItemsView()
+    }, 30000)
+}
 
-window.addEventListener("DOMContentLoaded",()=>{
+
+window.addEventListener("DOMContentLoaded", () => {
     setview.orderItemsView()
     mymoney.getStoredMoney()
     setview.updateMoneyView()
-    // //-- ORDER MODAL
-    // setTimeout(()=>{
-    //     $('#orderModal').modal('show')
-    // },10000)
+    //-- ORDER MODAL
+    setTimeout(() => {
+        callCustomer();
+        setview.updateOrderItemsView()
+    }, 10000)
     setview.updateMoneyView();
 })
 
