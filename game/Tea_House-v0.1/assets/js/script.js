@@ -17,6 +17,26 @@ let clrBtn = document.querySelector("[data-clear]")
 //-- Other Variables
 let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0, item
 
+var customers = {
+    grandma: "./assets/img/customer-icons/Icon_Grandma.png",
+    ivy_sheehan: "./assets/img/customer-icons/Icon_Ivy_Sheehan.png",
+    hyun_kim: "./assets/img/customer-icons/Icon_Hyun_Kim.png",
+    sophia: "./assets/img/customer-icons/Icon_Sophia.png",
+    summer: "./assets/img/customer-icons/Icon_Summer.png",
+    don_blaine: "./assets/img/customer-icons/Icon_Don_Blaine.png",
+    jack_gilmore: "./assets/img/customer-icons/Icon_Jack_Gilmore.png",
+    lina_young: "./assets/img/customer-icons/Icon_Lina_Young.png",
+    sarah_suthers: "./assets/img/customer-icons/Icon_Sarah_Suthers.png",
+}
+let cust_keys = Object.keys(customers);
+let cust_random = cust_keys[Math.floor(Math.random() * cust_keys.length)]
+console.log(cust_random)
+function random_item(items) {
+    // Use Math.random() to generate a random number between 0 and 1,
+    // multiply it by the length of the array, and use Math.floor() to round down to the nearest integer
+    return items[Math.floor(Math.random() * items.length)];
+}
+
 var images = {
     //-- IN GLASS IMAGES LINK
     plus: "./assets/img/thick-plus-black-icon.png",
