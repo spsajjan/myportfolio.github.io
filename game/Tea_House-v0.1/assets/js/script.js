@@ -52,7 +52,7 @@ var drinks = [
     "glassLemonGrass",
     "glassFreshRosemary",
     "glassDriedRosemary",
-    "glassCamomile",
+    "glassCamomile"
 ]
 
 var images = {
@@ -124,6 +124,7 @@ var naming = {
     glassIce: "Ice",
     glassIcedWater: "Cold Water",
     glassAmericano: "Hot Americano",
+    glassIcedAmericano: "Iced Americano",
     glassFreshTea: "Fresh Leaf Hot Tea",
     glassOolongTea: "Semi Fermented Oolong Tea",
     glassBlackTea: "Fully Fermented Black Tea",
@@ -161,36 +162,48 @@ class Mixer {
         opFour = newOpMat[3];
     }
     compute(opOne, opTwo, opThree, opFour) {
-        if (opThree == undefined && opFour == undefined) {
-            if (opOne == "ice" && opTwo == "ice") { computation = "glassIce"; }
-            else if (opOne == "water") {
-                if (opTwo == "black_tea_leaves") { computation = "glassBlackTea" }
-                if (opTwo == "ice") { computation = "glassIcedWater" }
-                if (opTwo == "camomile_leaves") { computation = "glassCamomile" }
-                if (opTwo == "oolong_leaves") { computation = "glassOolongTea" }
-                if (opTwo == "dried_rosemary") { computation = "glassDriedRosemary" }
-                if (opTwo == "fresh_rosemary") { computation = "glassFreshRosemary" }
-                if (opTwo == "lemon_grass") { computation = "glassLemonGrass" }
-                if (opTwo == "fresh_leaves") { computation = "glassFreshTea" }
-                if (opTwo == "coffee_beans") { computation = "glassAmericano" }
-                if (opTwo == "water") { computation = "glassWater" }
+        if (opFour == undefined) {
+            if (opOne == "water" && opTwo == "ice" && opThree == "coffee_beans") { computation = "glassIcedAmericano" }
+            else if (opThree == undefined && opFour == undefined) {
+                if (opOne == "ice" && opTwo == "ice") { computation = "glassIce"; }
+                else if (opOne == "water") {
+                    if (opTwo == "black_tea_leaves") { computation = "glassBlackTea" }
+                    if (opTwo == "ice") { computation = "glassIcedWater" }
+                    if (opTwo == "camomile_leaves") { computation = "glassCamomile" }
+                    if (opTwo == "oolong_leaves") { computation = "glassOolongTea" }
+                    if (opTwo == "dried_rosemary") { computation = "glassDriedRosemary" }
+                    if (opTwo == "fresh_rosemary") { computation = "glassFreshRosemary" }
+                    if (opTwo == "lemon_grass") { computation = "glassLemonGrass" }
+                    if (opTwo == "fresh_leaves") { computation = "glassFreshTea" }
+                    if (opTwo == "coffee_beans") { computation = "glassAmericano" }
+                    if (opTwo == "water") { computation = "glassWater" }
+                } else { computation = "glassMishmash" }
             } else { computation = "glassMishmash" }
-        } else { computation = "glassMishmash" }
+        }
+
         result = naming[computation]
         mixer.showResult(computation, result)
-        mixer.sellMaterial(orderItems, computation)
+        mixer.sellDrink(orderItems, computation)
         mixer.updateCraftModal(computation)
     }
     showResult(computation, result) {
         resImg.src = images[computation];
         outxt.innerText = result;
     }
-    sellMaterial(orderItems, madeItem) {
+    sellDrink(orderItems, madeItem) {
         if (orderItems[0] == madeItem) {
             money = money + cost[madeItem];
             orderItems.shift();
+            mixer.drinkSold();
         }
-        console.log(orderItems);
+    }
+    drinkSold() {
+        opOne = undefined;
+        opTwo = undefined;
+        opThree = undefined;
+        opFour = undefined;
+        opMat = undefined;
+        updateinglass.glass();
     }
     updateCraftModal(computation) {
         $(".craft-text").text(naming[computation]);
@@ -305,7 +318,7 @@ function checkOrders() {
     if (orderInLimit()) {
         setTimeout(() => {
             callCustomer();
-        }, 20000)
+        }, 10000)
     } else {
         if (shopFullAlert == (false || undefined)) {
             alert("Your shop is full please finish the orders.");
@@ -313,7 +326,7 @@ function checkOrders() {
         }
         setTimeout(() => {
             checkOrders();
-        }, 20000)
+        }, 10000)
     }
 }
 
@@ -339,12 +352,13 @@ function callCustomer() {
     let cust_keys = Object.keys(customers)
     let cust_random = random_item(cust_keys)
     drinkNow = random_item_array(drinks)
+    console.log(drinkNow);
     $('#cust-img').attr("src", customers[cust_random])
     $('#cust-txt').html(naming[drinkNow])
     $('#orderModal').modal('show')
     setTimeout(() => {
         checkOrders();
-    }, 20000)
+    }, 10000)
 }
 
 
@@ -355,7 +369,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //-- ORDER MODAL
     setTimeout(() => {
         checkOrders();
-    }, 20000)
+    }, 10000)
     setview.updateMoneyView();
 })
 
