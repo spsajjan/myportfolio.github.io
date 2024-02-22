@@ -1,0 +1,111 @@
+--------------------------------  ***** MySQL JOINS ***** ----------------------------
+Joins help retrieving data from two or more database tables.The tables are mutually related using primary and foreign keys.
+
+1) Create a table movies with auto increment and primary key "id", and normal colums "title", "category".
+ANS:- CREATE TABLE movies(id INT AUTO_INCREMENT PRIMARY KEY,title VARCHAR(100),category VARCHAR(100));
+
+2) Insert data into the table movies.
+ANS:- INSERT INTO movies(title,category) VALUES
+	('Real Steel','Animations'),
+	('The Adventures of Tin Tin','Animations'),
+	('Safe House','Action'),
+	('Deadline 2009','18+'),
+	('Marley and me','Romance'),
+	('Avatar2','Drama');
+
+3) Create a table members with columns firstname, lastname, and column movie id that references id from movie table.
+ANS:- CREATE TABLE members (id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50),movie_id INT, FOREIGN KEY(movie_id) REFERENCES movies(id));
+
+4) Insert data into members table.
+ANS:- INSERT INTO members(first_name,last_name,movie_id) VALUES
+	('Adam','Smith',1),
+	('Ravi','Kumar',2),
+	('Susan','Davidson',3),
+        ('Martin','Joseph',4),
+	('Jenny','Andrinna',5);
+
+
+---------------------------- *-- Types of Joins --* ------------------------
+There are 4 types of join, they are
+1) Cross Join
+2) Inner Join
+3) Left Join
+4) Right Join
+
+INNER JOIN: Returns records that have matching values in both tables
+LEFT JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT JOIN: Returns all records from the right table, and the matched records from the left table
+CROSS JOIN: Returns all records from both tables
+
+------------------------------- -- CROSS JOIN -- -----------------------------
+Cross JOIN is a simplest form of JOINs which matches each row from one database table to all rows of another.
+In other words it gives us combinations of each row of first table with all records in second table.
+
+Ex:- SELECT * FROM movies CROSS JOIN  members;
+
+------------------------------- -- INNER JOIN -- -----------------------------
+The inner JOIN is used to return rows from both tables that satisfy the given condition.
+Suppose , you want to get list of members who have rented movies together with titles of movies rented by them. 
+You can simply use an INNER JOIN for that, which returns rows from both tables that satisfy with given conditions
+
+Ex:- SELECT members.first_name, members.last_name , movies.title FROM members ,movies WHERE movies.id = members.movie_id;
+
+Note:- The above results script can also be written as follows to achieve the same results.
+Ex:- SELECT a.first_name,a.last_name,b.title FROM members a INNER JOIN movies b ON b.id = a.movie_id
+-- OR --
+SELECT a.first_name,a.last_name,b.title FROM members a, movies b WHERE a.movie_id=b.id;
+
+------------------------------- -- LEFT JOIN -- -----------------------------
+Assume now you want to get titles of all movies together with names of members who have rented them. 
+It is clear that some movies have not being rented by any one. We can simply use LEFT JOIN for the purpose
+
+Return all records from the left table and matching records from the right table.
+
+The LEFT JOIN returns all the rows from the table on the left even if no matching rows have been found in the table on the right. Where no matches have been found in the table on the right, NULL is returned.
+
+Ex:- SELECT a.title , b.first_name, b.last_name FROM movies a LEFT JOIN members  b ON b.movie_id = a.id;
+
+
+------------------------------- -- RIGHT JOIN -- -----------------------------
+RIGHT JOIN is obviously the opposite of LEFT JOIN. The RIGHT JOIN returns all the columns from the table on the right even if no matching rows have been found in the table on the left. Where no matches have been found in the table on the left, NULL is returned.
+
+In our example,  let’s assume that you need to get names of members and movies rented by them. Now we have a new member who has not rented any movie yet.
+
+Ex:- SELECT a.title , b.first_name, b.last_name FROM movies a RIGHT JOIN members  b ON b.movie_id = a.id;
+
+“ON” and “USING” clauses
+In above JOIN query examples, we have used ON clause to match the records between table.
+
+USING clause can also be used for the same purpose. The difference with USING is it needs to have identical names for matched columns in both tables.
+
+In “movies” table so far we used its primary key with the name “id”. We referred to same in  “members” table with the name “movie_id”.
+
+Let’s rename “movies” tables “id” field to have the name “movie_id”. We do this in order to have identical matched field names.
+--------------------------------------------------------------------------------------
+   Users
+   
+   fname
+   lname
+   city
+   address
+   email     (primary key)
+   contact
+   created_date
+
+
+   CustomerOrders
+
+   id       (primary key)
+   email    (foreign key)
+   product_name
+   amount
+   order_date
+
+   1) find the no of users from every city?
+   2) find the no of registered users by date wise
+   3) display no of products,product_name saled by datewise 
+   4) display no of products ordered by every user with product_name
+   5) display datewise total amount collection
+   6) display sum of amount is saled from date 2021-01-01 to 2024-01-31
+   7) dispaly product_name wise total no of products are saled.
+
