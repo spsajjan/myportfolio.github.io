@@ -165,7 +165,7 @@ class Mixer {
         if (opFour == undefined) {
             if (opOne == "water" && opTwo == "ice" && opThree == "coffee_beans") { computation = "glassIcedAmericano" }
             else if (opThree == undefined && opFour == undefined) {
-                if (opOne == "ice" && opTwo == "ice") { computation = "glassIce"; }
+                if (opOne == "ice" && opTwo == "ice") { computation = "glassIce" }
                 else if (opOne == "water") {
                     if (opTwo == "black_tea_leaves") { computation = "glassBlackTea" }
                     if (opTwo == "ice") { computation = "glassIcedWater" }
@@ -179,7 +179,7 @@ class Mixer {
                     if (opTwo == "water") { computation = "glassWater" }
                 } else { computation = "glassMishmash" }
             } else { computation = "glassMishmash" }
-        }
+        } else { computation = "glassMishmash" }
 
         result = naming[computation]
         mixer.showResult(computation, result)
