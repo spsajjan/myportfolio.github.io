@@ -126,6 +126,7 @@ var naming = {
     glassAmericano: "Hot Americano",
     glassIcedAmericano: "Iced Americano",
     glassFreshTea: "Fresh Leaf Hot Tea",
+    glassIcedFreshTea: "Fresh Leaf Iced Tea",
     glassOolongTea: "Semi Fermented Oolong Tea",
     glassBlackTea: "Fully Fermented Black Tea",
     glassLemonGrass: "Fresh Lemon Grass Hot Tea",
@@ -163,11 +164,12 @@ class Mixer {
     }
     compute(opOne, opTwo, opThree, opFour) {
         if (opOne == undefined && opTwo == undefined && opThree == undefined && opFour == undefined) {
-            alert("Please add more ingredients")
+            alert("Please add more ingredients");
             computation = "glassEmpty"
         }
         else if (opFour == undefined) {
             if (opOne == "water" && opTwo == "ice" && opThree == "coffee_beans") { computation = "glassIcedAmericano" }
+            else if (opOne == "water" && opTwo == "ice" && opThree == "freshLeaves") { computation = "glassIcedFreshTea" }
             else if (opThree == undefined && opFour == undefined) {
                 if (opOne == "ice" && opTwo == "ice") { computation = "glassIce" }
                 else if (opOne == "water") {
