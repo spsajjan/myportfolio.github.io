@@ -6,7 +6,6 @@ let opFourView = document.querySelector(".op-four")
 let coinIcon = document.querySelector(".coin-icon")
 let resImg = document.querySelector(".res-img")
 let orderList = document.querySelector(".order-list")
-let craftxt = document.querySelector("craft-text")
 
 let moneytxt = document.querySelector(".money-text")
 let outxt = document.querySelector(".output-text")
@@ -92,6 +91,7 @@ var cost = {
     glassIce: 1.0,
     mishmash: 1.05,
     glassWater: 1.25,
+    glassIcedWater: 1.50,
     glassAmericano: 2.15,
     glassIcedAmericano: 2.35,
     glassFreshTea: 3.55,
@@ -184,7 +184,6 @@ class Mixer {
         result = naming[computation]
         mixer.showResult(computation, result)
         mixer.sellDrink(orderItems, computation)
-        mixer.updateCraftModal(computation)
     }
     showResult(computation, result) {
         resImg.src = images[computation];
@@ -195,6 +194,8 @@ class Mixer {
             money = money + cost[madeItem];
             orderItems.shift();
             mixer.drinkSold();
+        } else {
+            alert("Oops! You made the wrong drink, Please try again...")
         }
     }
     drinkSold() {
@@ -204,10 +205,6 @@ class Mixer {
         opFour = undefined;
         opMat = undefined;
         updateinglass.glass();
-    }
-    updateCraftModal(computation) {
-        $(".craft-text").text(naming[computation]);
-        $('.craft-img').attr('src', images[computation]);
     }
 }
 class myMoney {
@@ -298,7 +295,6 @@ mixBtn.addEventListener('click', button => {
     empty(orderList);
     setview.orderItemsView()
     setview.updateMoneyView()
-    $('#craftModal').modal('show')
 })
 
 //-- WASH BUTTON CLICK
@@ -352,7 +348,6 @@ function callCustomer() {
     let cust_keys = Object.keys(customers)
     let cust_random = random_item(cust_keys)
     drinkNow = random_item_array(drinks)
-    console.log(drinkNow);
     $('#cust-img').attr("src", customers[cust_random])
     $('#cust-txt').html(naming[drinkNow])
     $('#orderModal').modal('show')
