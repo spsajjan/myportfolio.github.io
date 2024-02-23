@@ -162,7 +162,11 @@ class Mixer {
         opFour = newOpMat[3];
     }
     compute(opOne, opTwo, opThree, opFour) {
-        if (opFour == undefined) {
+        if (opOne == undefined && opTwo == undefined && opThree == undefined && opFour == undefined) {
+            alert("Please add more ingredients")
+            computation = "glassEmpty"
+        }
+        else if (opFour == undefined) {
             if (opOne == "water" && opTwo == "ice" && opThree == "coffee_beans") { computation = "glassIcedAmericano" }
             else if (opThree == undefined && opFour == undefined) {
                 if (opOne == "ice" && opTwo == "ice") { computation = "glassIce" }
