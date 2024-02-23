@@ -15,6 +15,7 @@
             <img src="./assets/img/little-corner-tea-house-icon.jpg" alt="">
         </div>
     </div>
+    
     <div class="container border rounded-2 mt-3 p-2">
         <div class="row">
             <div class="col-md-3 d-flex">
@@ -23,52 +24,76 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row p-2">
-          <div class="col-md-6">
-              <div class="d-flex">
-                  <div class="g-container">
-                      <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-four glass-img">
-                      <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-three glass-img">
-                      <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-two glass-img">
-                      <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-one glass-img">
-                  </div>
-
-                  <div class="d-flex flex-column">
-                      <div class="output-container">
-                          <p class="h3 text-center">You Crafted!</p>
-                          <p class="output-text p-1 text-center"></p>
-                          <div class="output">
-                              <img src="./assets/img/glass-empty.png" alt="" class="res-img">
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="m-2">
-                      <span data-mix><img src="./assets/img/craft-icon.jpg" alt="" class="icon"></span>
-                      <span data-clear><img src="./assets/img/wash-icon.jpg" alt="" class="icon"></span>
-                  </div>
-              </div>
-              <div class="material-container">
-                  <span data-material="water" title="Hot Water"><img src="./assets/img/hot-water-can.png" alt="" class="icon" ></span>
-                  <span data-material="ice" title="Ice Cubes"><img src="./assets/img/ice-box.png" alt="" class="icon" ></span>
-                  <span data-material="coffee_beans" title="Coffee Beans"><img src="./assets/img/material/bag-coffee-beans.png" alt="" class="icon" ></span>
-                  <span data-material="fresh_leaves" title="Fresh Tea Leaves"><img src="./assets/img/material/bag-fresh-tea-leaf.png" alt="" class="icon" ></span>
-                  <span data-material="lemon_grass" title="Fresh Lemon Grass Leaves"><img src="./assets/img/material/bag-lemon-grass.png" alt="" class="icon" ></span>
-                  <span data-material="fresh_rosemary" title="Fresh Rosemary Leaves"><img src="./assets/img/material/bag-rosemary.png" alt="" class="icon" ></span>
-                  <span data-material="dried_rosemary" title="Dried Rosemary Leaves"><img src="./assets/img/material/jar-rosemary-dried.png" alt="" class="icon" ></span>
-                  <span data-material="oolong_leaves" title="Semi Fermented Oolong Leaves"><img src="./assets/img/material/jar-oolong-leaves.png" alt="" class="icon" ></span>
-                  <span data-material="black_tea_leaves" title="Black Tea Leaves"><img src="./assets/img/material/jar-black-tea-leaves.png" alt="" class="icon" ></span>
-                  <span data-material="camomile_leaves" title="Camomile Leaves"><img src="./assets/img/material/container-camomile.png" alt="" class="icon" ></span>
-                </div>
-          </div>
-            <div class="col-md-6">
-              <div class="order-details overflow-auto p-2">
-                  <p class="h3 text-center border-bottom">Order Details</p>
-                  <div class="order-list p-3"></div>
-              </div>
-            </div>
+    
+    
+    <div class="container pt-3">
+      <!-- Navigations Start -->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+          <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+          <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false" disabled>Disabled</button>
         </div>
+      </nav>
+      <!-- Navigation Ends -->
+      <!-- Navigatioins Content Starts -->
+      <div class="tab-content" id="nav-tabContent">
+        <!-- Home Content Starts -->
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+          <div class="row p-2">
+            <div class="col-md-6">
+                <div class="d-flex">
+                    <div class="g-container">
+                        <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-four glass-img">
+                        <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-three glass-img">
+                        <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-two glass-img">
+                        <img src="./assets/img/thick-plus-black-icon.png" alt="" class="op-one glass-img">
+                    </div>
+  
+                    <div class="d-flex flex-column">
+                        <div class="output-container">
+                            <p class="h3 text-center">You Crafted!</p>
+                            <p class="output-text text-center"></p>
+                            <div class="output">
+                                <img src="./assets/img/glass-empty.png" alt="" class="res-img">
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="m-2">
+                        <span data-mix><img src="./assets/img/craft-icon.jpg" alt="" class="icon"></span>
+                        <span data-clear><img src="./assets/img/wash-icon.jpg" alt="" class="icon"></span>
+                    </div>
+                </div>
+                <div class="material-container">
+                    <span data-material="water" title="Hot Water"><img src="./assets/img/hot-water-can.png" alt="" class="icon" ></span>
+                    <span data-material="ice" title="Ice Cubes"><img src="./assets/img/ice-box.png" alt="" class="icon" ></span>
+                    <span data-material="coffee_beans" title="Coffee Beans"><img src="./assets/img/material/bag-coffee-beans.png" alt="" class="icon" ></span>
+                    <span data-material="fresh_leaves" title="Fresh Tea Leaves"><img src="./assets/img/material/bag-fresh-tea-leaf.png" alt="" class="icon" ></span>
+                    <span data-material="lemon_grass" title="Fresh Lemon Grass Leaves"><img src="./assets/img/material/bag-lemon-grass.png" alt="" class="icon" ></span>
+                    <span data-material="fresh_rosemary" title="Fresh Rosemary Leaves"><img src="./assets/img/material/bag-rosemary.png" alt="" class="icon" ></span>
+                    <span data-material="dried_rosemary" title="Dried Rosemary Leaves"><img src="./assets/img/material/jar-rosemary-dried.png" alt="" class="icon" ></span>
+                    <span data-material="oolong_leaves" title="Semi Fermented Oolong Leaves"><img src="./assets/img/material/jar-oolong-leaves.png" alt="" class="icon" ></span>
+                    <span data-material="black_tea_leaves" title="Black Tea Leaves"><img src="./assets/img/material/jar-black-tea-leaves.png" alt="" class="icon" ></span>
+                    <span data-material="camomile_leaves" title="Camomile Leaves"><img src="./assets/img/material/container-camomile.png" alt="" class="icon" ></span>
+                  </div>
+            </div>
+              <div class="col-md-6">
+                <div class="order-details overflow-auto p-2">
+                    <p class="h3 text-center border-bottom">Order Details</p>
+                    <div class="order-list p-3"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- Home Content Ends -->
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+        <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+      </div>
+        <!-- Navigation Content Ends -->
+      
 
   <!-- Modal -->
   <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
