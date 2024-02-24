@@ -17,6 +17,16 @@ let acceptOrderBtn = document.querySelector("#accept-order");
 //-- Other Variables
 let opMat, opOne, opTwo, opThree, opFour, computation, result, money = 0.0, item, drinkNow, shopFullAlert = false
 
+var animal_pots = {
+    potHedgehog: "./assets/img/store/animal-pots/pot-hedgehog.png",
+    potBrownDog: "./assets/img/store/animal-pots/pot-brown-dog.png",
+    potGreyCat: "./assets/img/store/animal-pots/pot-grey-cat.png",
+    potOrangeDog: "./assets/img/store/animal-pots/pot-orange-dog.png",
+    potOrangeStripeCat: "./assets/img/store/animal-pots/pot-orange-stripe-cat.png",
+    potPinkCat: "./assets/img/store/animal-pots/pot-pink-cat.png",
+    potOrangeDogTwo: "./assets/img/store/animal-pots/pot-orange-dog-2.png",
+}
+
 var customers = {
     grandma: "./assets/img/customer-icons/Icon_Grandma.png",
     ivy_sheehan: "./assets/img/customer-icons/Icon_Ivy_Sheehan.png",
@@ -27,15 +37,6 @@ var customers = {
     jack_gilmore: "./assets/img/customer-icons/Icon_Jack_Gilmore.png",
     lina_young: "./assets/img/customer-icons/Icon_Lina_Young.png",
     sarah_suthers: "./assets/img/customer-icons/Icon_Sarah_Suthers.png",
-}
-
-function random_item_array(items) {
-    return items[Math.floor(Math.random() * items.length)];
-}
-function random_item(items) {
-    // Use Math.random() to generate a random number between 0 and 1,
-    // multiply it by the length of the array, and use Math.floor() to round down to the nearest integer
-    return items[Math.floor(Math.random() * items.length)];
 }
 
 var drinks = [
@@ -103,6 +104,15 @@ var cost = {
     glassFreshRosemary: 4.15,
     glassDriedRosemary: 5.85,
     glassCamomile: 6.05,
+
+    //-- POTS COST (ANIMAL)
+    potHedgehog: 26,
+    potBrownDog: 14,
+    potGreyCat: 20,
+    potOrangeDog: 22,
+    potOrangeDogTwo: 12,
+    potOrangeStripeCat: 18,
+    potPinkCat: 16,
 }
 
 var naming = {
@@ -133,10 +143,29 @@ var naming = {
     glassFreshRosemary: "Fresh Hot Rosemary Tea",
     glassDriedRosemary: "Dried Hot Rosemary Tea",
     glassCamomile: "Camomile Tea",
-    glassMishmash: "Mishmash"
+    glassMishmash: "Mishmash",
+
+    //-- POTS NAMING (ANIMAL)
+    potHedgehog: "Big Hedgehog Pot",
+    potBrownDog: "Big Brown Dog Pot",
+    potGreyCat: "Big Grey Cat Pot",
+    potOrangeDog: "Big Orange Dog Pot",
+    potOrangeDogTwo: "Big Happy Orange Dog Pot",
+    potOrangeStripeCat: "Big Orange Striped Cat Pot",
+    potPinkCat: "Big Pink Cat Pot",
 }
 
 let orderItems = []
+
+function random_item_array(items) {
+    return items[Math.floor(Math.random() * items.length)];
+}
+function random_item(items) {
+    // Use Math.random() to generate a random number between 0 and 1,
+    // multiply it by the length of the array, and use Math.floor() to round down to the nearest integer
+    return items[Math.floor(Math.random() * items.length)];
+}
+
 class Mixer {
     clear() {
         opOne = undefined;
