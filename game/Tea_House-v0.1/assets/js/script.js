@@ -197,9 +197,11 @@ class Mixer {
             computation = "glassEmpty"
         }
         else if (opFour == undefined) {
-            if (opOne == "water" && opTwo == "ice" && opThree == "coffee_beans") { computation = "glassIcedAmericano" }
-            else if (opOne == "water" && opTwo == "ice" && opThree == "freshLeaves") { computation = "glassIcedFreshTea" }
-            else if (opThree == undefined && opFour == undefined) {
+            if (opOne == "water" && opTwo == "ice") {
+                if (opThree == "coffee_beans") { computation = "glassIcedAmericano" }
+                else if (opThree == "fresh_leaves") { computation = "glassIcedFreshTea" }
+            }
+            else if (opThree == undefined) {
                 if (opOne == "ice" && opTwo == "ice") { computation = "glassIce" }
                 else if (opOne == "water") {
                     if (opTwo == "black_tea_leaves") { computation = "glassBlackTea" }
@@ -212,7 +214,7 @@ class Mixer {
                     if (opTwo == "fresh_leaves") { computation = "glassFreshTea" }
                     if (opTwo == "coffee_beans") { computation = "glassAmericano" }
                     if (opTwo == "water") { computation = "glassWater" }
-                } else { computation = "glassMishmash" }
+                }
             } else { computation = "glassMishmash" }
         } else { computation = "glassMishmash" }
 
